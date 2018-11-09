@@ -56,7 +56,7 @@ public abstract class AbstractArrayCursor< T extends NativeType< T > > extends A
 	/**
 	 * Offset of this cursor
 	 */
-	protected final int offset;
+	protected int offset;
 
 	/**
 	 * Size of this cursor

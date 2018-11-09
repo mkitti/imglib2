@@ -34,6 +34,9 @@
 
 package net.imglib2.img.array;
 
+import java.util.Spliterator;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 import net.imglib2.Cursor;
 import net.imglib2.FlatIterationOrder;
 import net.imglib2.Interval;
@@ -230,5 +233,21 @@ public class ArrayImg< T extends NativeType< T >, A > extends AbstractNativeImg<
 	public Object subIntervalIterationOrder( final Interval interval )
 	{
 		return new FlatIterationOrder( interval );
+	}
+
+	@Override
+	public Spliterator< T > spliterator()
+	{
+		return new ArraySpliterator< T >( this );
+	}
+
+	public Stream< T > stream()
+	{
+		return StreamSupport.stream( spliterator(), false );
+	}
+
+	public Stream< T > parallelStream()
+	{
+		return StreamSupport.stream( spliterator(), true );
 	}
 }
