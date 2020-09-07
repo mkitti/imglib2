@@ -47,7 +47,7 @@ import net.imglib2.util.Fraction;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class DoubleType extends AbstractRealType< DoubleType > implements NativeType< DoubleType >
+public class DoubleType extends AbstractFloatingPointType< DoubleType > implements NativeType< DoubleType >
 {
 	private int i = 0;
 
@@ -217,5 +217,61 @@ public class DoubleType extends AbstractRealType< DoubleType > implements Native
 
 	public static boolean equals(double a, double b) {
 		return Double.doubleToLongBits( a ) == Double.doubleToLongBits( b );
+	}
+
+	@Override
+	public DoubleType getMaxValue(DoubleType type) {
+		type.set(Double.MAX_VALUE);
+		return type;
+	}
+
+	@Override
+	public DoubleType getMinNormal(DoubleType type) {
+		type.set(Double.MIN_NORMAL);
+		return type;
+	}
+
+	@Override
+	public DoubleType getMinValue(DoubleType type) {
+		type.set(Double.MIN_VALUE);
+		return type;
+	}
+
+	@Override
+	public DoubleType getNaN(DoubleType type) {
+		type.set(Double.NaN);
+		return type;
+	}
+
+	@Override
+	public DoubleType getNegativeInfinity(DoubleType type) {
+		type.set(Double.NEGATIVE_INFINITY);
+		return type;
+	}
+
+	@Override
+	public DoubleType getPositiveInfinity(DoubleType type) {
+		type.set(Double.POSITIVE_INFINITY);
+		return type;
+	}
+
+	@Override
+	public double getMinNormal() {
+		return Double.MIN_NORMAL;
+	}
+
+	@Override
+	public double getNaN() {
+		return Double.NaN;
+	}
+
+	@Override
+	public double getNegativeInfinity() {
+		return Double.NEGATIVE_INFINITY;
+	}
+
+	@Override
+	public double getPositiveInfinity() {
+		return Double.POSITIVE_INFINITY;
 	}
 }

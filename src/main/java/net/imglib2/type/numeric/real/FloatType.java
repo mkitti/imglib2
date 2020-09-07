@@ -48,7 +48,7 @@ import net.imglib2.util.Util;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class FloatType extends AbstractRealType< FloatType > implements NativeType< FloatType >
+public class FloatType extends AbstractFloatingPointType< FloatType > implements NativeType< FloatType >
 {
 	private int i = 0;
 
@@ -311,5 +311,61 @@ public class FloatType extends AbstractRealType< FloatType > implements NativeTy
 	public static boolean equals( float a, float b )
 	{
 		return Float.floatToIntBits( a ) == Float.floatToIntBits( b );
+	}
+
+	@Override
+	public FloatType getMaxValue(FloatType type) {
+		type.set(Float.MAX_VALUE);
+		return type;
+	}
+
+	@Override
+	public FloatType getMinNormal(FloatType type) {
+		type.set(Float.MIN_NORMAL);
+		return type;
+	}
+
+	@Override
+	public FloatType getMinValue(FloatType type) {
+		type.set(Float.MIN_VALUE);
+		return type;
+	}
+
+	@Override
+	public FloatType getNaN(FloatType type) {
+		type.set(Float.NaN);
+		return type;
+	}
+
+	@Override
+	public FloatType getNegativeInfinity(FloatType type) {
+		type.set(Float.NEGATIVE_INFINITY);
+		return type;
+	}
+
+	@Override
+	public FloatType getPositiveInfinity(FloatType type) {
+		type.set(Float.POSITIVE_INFINITY);
+		return type;
+	}
+
+	@Override
+	public double getMinNormal() {
+		return Float.MIN_NORMAL;
+	}
+
+	@Override
+	public double getNaN() {
+		return Float.NaN;
+	}
+
+	@Override
+	public double getNegativeInfinity() {
+		return Float.NEGATIVE_INFINITY;
+	}
+
+	@Override
+	public double getPositiveInfinity() {
+		return Float.POSITIVE_INFINITY;
 	}
 }
