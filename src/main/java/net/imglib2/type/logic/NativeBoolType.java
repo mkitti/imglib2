@@ -41,6 +41,7 @@ import net.imglib2.img.basictypeaccess.BooleanAccess;
 import net.imglib2.img.basictypeaccess.array.BooleanArray;
 import net.imglib2.type.BooleanType;
 import net.imglib2.type.NativeType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.integer.AbstractIntegerType;
 import net.imglib2.util.Fraction;
@@ -51,7 +52,7 @@ import net.imglib2.util.Util;
  *
  * @author Curtis Rueden
  */
-public class NativeBoolType extends AbstractIntegerType< NativeBoolType > implements BooleanType< NativeBoolType >, NativeType< NativeBoolType >
+public class NativeBoolType extends AbstractIntegerType< NativeBoolType > implements BooleanType< NativeBoolType >, NativeType< NativeBoolType >, NativeTypeAccess< NativeBoolType,BooleanAccess >
 {
 	int i = 0;
 

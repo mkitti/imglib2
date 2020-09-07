@@ -41,6 +41,7 @@ import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.img.basictypeaccess.array.LongArray;
 import net.imglib2.type.BooleanType;
 import net.imglib2.type.NativeType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.IntegerType;
 import net.imglib2.type.numeric.integer.AbstractIntegerType;
@@ -53,7 +54,7 @@ import net.imglib2.util.Util;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class BitType extends AbstractIntegerType< BitType > implements BooleanType< BitType >, NativeType< BitType >, IntegerType< BitType >
+public class BitType extends AbstractIntegerType< BitType > implements BooleanType< BitType >, NativeType< BitType >, IntegerType< BitType >, NativeTypeAccess< BitType,LongAccess >
 {
 	// Maximum count is Integer.MAX_VALUE * (64 / getBitsPerPixel())
 	protected int i = 0;

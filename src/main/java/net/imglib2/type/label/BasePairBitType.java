@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.type.AbstractBit64Type;
 import net.imglib2.type.BasePairType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 
 /**
@@ -47,7 +48,7 @@ import net.imglib2.type.NativeTypeFactory;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class BasePairBitType extends AbstractBit64Type< BasePairBitType > implements BasePairType< BasePairBitType >
+public class BasePairBitType extends AbstractBit64Type< BasePairBitType > implements BasePairType< BasePairBitType >, NativeTypeAccess< BasePairBitType,LongAccess >
 {
 	// hom many bits a BasePairBitType contains
 	private static final int NBITS = 3;

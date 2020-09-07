@@ -39,6 +39,7 @@ import net.imglib2.img.basictypeaccess.CharAccess;
 import net.imglib2.img.basictypeaccess.array.CharArray;
 import net.imglib2.type.AbstractNativeType;
 import net.imglib2.type.BasePairType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.label.BasePairBitType.Base;
 import net.imglib2.util.Fraction;
@@ -50,7 +51,7 @@ import net.imglib2.util.Fraction;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class BasePairCharType extends AbstractNativeType< BasePairCharType > implements BasePairType< BasePairCharType >
+public class BasePairCharType extends AbstractNativeType< BasePairCharType > implements BasePairType< BasePairCharType >, NativeTypeAccess < BasePairCharType,CharAccess >
 {
 	@Override
 	public Fraction getEntitiesPerPixel()
