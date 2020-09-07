@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.FloatAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileFloatAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileFloatArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.real.FloatType;
 
@@ -48,7 +49,7 @@ import net.imglib2.type.numeric.real.FloatType;
  *
  * @author Stephan Saalfeld
  */
-public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType, VolatileFloatType >
+public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType, VolatileFloatType > implements NativeTypeAccess< VolatileFloatType, VolatileFloatAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileFloatAccess > img;
 
@@ -133,7 +134,7 @@ public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType
 	private static final NativeTypeFactory< VolatileFloatType, VolatileFloatAccess > typeFactory = NativeTypeFactory.FLOAT( VolatileFloatType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileFloatType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileFloatType, VolatileFloatAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

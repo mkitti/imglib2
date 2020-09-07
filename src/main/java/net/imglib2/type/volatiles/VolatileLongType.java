@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileLongAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileLongArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.integer.LongType;
 
@@ -48,7 +49,7 @@ import net.imglib2.type.numeric.integer.LongType;
  *
  * @author Stephan Saalfeld
  */
-public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, VolatileLongType >
+public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, VolatileLongType > implements NativeTypeAccess< VolatileLongType,VolatileLongAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileLongAccess > img;
 
@@ -133,7 +134,7 @@ public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, 
 	private static final NativeTypeFactory< VolatileLongType, VolatileLongAccess > typeFactory = NativeTypeFactory.LONG( VolatileLongType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileLongType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileLongType, VolatileLongAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.ShortAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileShortAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileShortArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.integer.ShortType;
 
@@ -48,7 +49,7 @@ import net.imglib2.type.numeric.integer.ShortType;
  *
  * @author Tobias Pietzsch &lt;tobias.pietzsch@gmail.com&gt;
  */
-public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType, VolatileShortType >
+public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType, VolatileShortType > implements NativeTypeAccess< VolatileShortType, VolatileShortAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileShortAccess > img;
 
@@ -133,7 +134,7 @@ public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType
 	private static final NativeTypeFactory< VolatileShortType, VolatileShortAccess > typeFactory = NativeTypeFactory.SHORT( VolatileShortType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileShortType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileShortType, VolatileShortAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

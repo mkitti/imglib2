@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.DoubleAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileDoubleAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileDoubleArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.real.DoubleType;
 
@@ -48,7 +49,7 @@ import net.imglib2.type.numeric.real.DoubleType;
  *
  * @author Stephan Saalfeld
  */
-public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleType, VolatileDoubleType >
+public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleType, VolatileDoubleType > implements NativeTypeAccess < VolatileDoubleType, VolatileDoubleAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileDoubleAccess > img;
 
@@ -133,7 +134,7 @@ public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleTy
 	private static final NativeTypeFactory< VolatileDoubleType, VolatileDoubleAccess > typeFactory = NativeTypeFactory.DOUBLE( VolatileDoubleType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileDoubleType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileDoubleType, VolatileDoubleAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

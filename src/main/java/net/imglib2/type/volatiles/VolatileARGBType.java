@@ -39,6 +39,7 @@ import net.imglib2.img.basictypeaccess.IntAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileIntAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileShortAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileIntArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.ARGBType;
 import net.imglib2.type.numeric.integer.UnsignedShortType;
@@ -51,7 +52,7 @@ import net.imglib2.type.numeric.integer.UnsignedShortType;
  * @author Stephan Saalfeld &lt;saalfelds@janelia.hhmi.org&gt;
  * @author Tobias Pietzsch &lt;tobias.pietzsch@gmail.com&gt;
  */
-public class VolatileARGBType extends AbstractVolatileNativeNumericType< ARGBType, VolatileARGBType >
+public class VolatileARGBType extends AbstractVolatileNativeNumericType< ARGBType, VolatileARGBType > implements NativeTypeAccess < VolatileARGBType, VolatileIntAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileIntAccess > img;
 
@@ -136,7 +137,7 @@ public class VolatileARGBType extends AbstractVolatileNativeNumericType< ARGBTyp
 	private static final NativeTypeFactory< VolatileARGBType, VolatileIntAccess > typeFactory = NativeTypeFactory.INT( VolatileARGBType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileARGBType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileARGBType, VolatileIntAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

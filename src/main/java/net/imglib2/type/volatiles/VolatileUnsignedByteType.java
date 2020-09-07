@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.ByteAccess;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileByteAccess;
 import net.imglib2.img.basictypeaccess.volatiles.array.VolatileByteArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.integer.UnsignedByteType;
 
@@ -49,7 +50,7 @@ import net.imglib2.type.numeric.integer.UnsignedByteType;
  * @author Stephan Saalfeld &lt;saalfelds@janelia.hhmi.org&gt;
  * @author Tobias Pietzsch &lt;tobias.pietzsch@gmail.com&gt;
  */
-public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< UnsignedByteType, VolatileUnsignedByteType >
+public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< UnsignedByteType, VolatileUnsignedByteType > implements NativeTypeAccess< VolatileUnsignedByteType,VolatileByteAccess >
 {
 	final protected NativeImg< ?, ? extends VolatileByteAccess > img;
 
@@ -134,7 +135,7 @@ public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< Un
 	private static final NativeTypeFactory< VolatileUnsignedByteType, VolatileByteAccess > typeFactory = NativeTypeFactory.BYTE( VolatileUnsignedByteType::new );
 
 	@Override
-	public NativeTypeFactory< VolatileUnsignedByteType, ? > getNativeTypeFactory()
+	public NativeTypeFactory< VolatileUnsignedByteType, VolatileByteAccess > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}
