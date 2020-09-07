@@ -38,6 +38,7 @@ import java.math.BigInteger;
 
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.ShortAccess;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 
 /**
@@ -46,7 +47,7 @@ import net.imglib2.type.NativeTypeFactory;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class ShortType extends GenericShortType< ShortType >
+public class ShortType extends GenericShortType< ShortType > implements NativeTypeAccess< ShortType, ShortAccess >
 {
 	// this is the constructor if you want it to read from an array
 	public ShortType( final NativeImg< ?, ? extends ShortAccess > img )

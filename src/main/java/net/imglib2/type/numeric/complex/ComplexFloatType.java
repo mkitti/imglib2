@@ -38,6 +38,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.FloatAccess;
 import net.imglib2.img.basictypeaccess.array.FloatArray;
 import net.imglib2.type.NativeType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.numeric.real.FloatType;
 import net.imglib2.util.Fraction;
@@ -49,7 +50,7 @@ import net.imglib2.util.Util;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class ComplexFloatType extends AbstractComplexType< ComplexFloatType > implements NativeType< ComplexFloatType >
+public class ComplexFloatType extends AbstractComplexType< ComplexFloatType > implements NativeType< ComplexFloatType >, NativeTypeAccess< ComplexFloatType,FloatAccess >
 {
 	private int i = 0;
 

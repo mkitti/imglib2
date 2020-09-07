@@ -41,6 +41,7 @@ import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.img.basictypeaccess.array.LongArray;
 import net.imglib2.type.NativeType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.Type;
 import net.imglib2.type.numeric.NumericType;
@@ -57,7 +58,7 @@ import net.imglib2.util.Util;
  *
  * @author Albert Cardona
  */
-public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType > implements NativeType< Unsigned128BitType >
+public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType > implements NativeType< Unsigned128BitType >, NativeTypeAccess< Unsigned128BitType,LongAccess >
 {
 	private int i = 0;
 

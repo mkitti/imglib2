@@ -39,6 +39,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.img.basictypeaccess.array.LongArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.util.Util;
 
@@ -50,7 +51,7 @@ import net.imglib2.util.Util;
  * @author Albert Cardona
  * @author Mark Hiner
  */
-public class UnsignedLongType extends GenericLongType< UnsignedLongType >
+public class UnsignedLongType extends GenericLongType< UnsignedLongType > implements NativeTypeAccess< UnsignedLongType,LongAccess >
 {
 
 	private static final double MAX_VALUE_PLUS_ONE = Math.pow( 2, 64 ); // not precise, because double is not sufficient

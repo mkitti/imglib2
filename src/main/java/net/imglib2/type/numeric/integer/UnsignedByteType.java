@@ -38,6 +38,7 @@ import java.math.BigInteger;
 
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.ByteAccess;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.util.Util;
 
@@ -47,7 +48,7 @@ import net.imglib2.util.Util;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class UnsignedByteType extends GenericByteType< UnsignedByteType >
+public class UnsignedByteType extends GenericByteType< UnsignedByteType > implements NativeTypeAccess< UnsignedByteType,ByteAccess >
 {
 	// this is the constructor if you want it to read from an array
 	public UnsignedByteType( final NativeImg< ?, ? extends ByteAccess > img )

@@ -39,6 +39,7 @@ import net.imglib2.img.basictypeaccess.IntAccess;
 import net.imglib2.img.basictypeaccess.array.IntArray;
 import net.imglib2.type.AbstractNativeType;
 import net.imglib2.type.NativeType;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
@@ -53,7 +54,7 @@ import net.imglib2.util.Util;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class ARGBType extends AbstractNativeType< ARGBType > implements NumericType< ARGBType >
+public class ARGBType extends AbstractNativeType< ARGBType > implements NumericType< ARGBType >, NativeTypeAccess< ARGBType,IntAccess >
 {
 	final protected NativeImg< ?, ? extends IntAccess > img;
 

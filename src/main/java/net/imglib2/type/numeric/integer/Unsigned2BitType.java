@@ -37,6 +37,7 @@ package net.imglib2.type.numeric.integer;
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.img.basictypeaccess.array.LongArray;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.Type;
 
@@ -47,7 +48,7 @@ import net.imglib2.type.Type;
  *
  * @author Albert Cardona
  */
-public class Unsigned2BitType extends AbstractIntegerBitType< Unsigned2BitType >
+public class Unsigned2BitType extends AbstractIntegerBitType< Unsigned2BitType > implements NativeTypeAccess< Unsigned2BitType, LongAccess >
 {
 	// A mask for bit and, containing nBits of 1
 	private final static long mask = 3; // 11 in binary

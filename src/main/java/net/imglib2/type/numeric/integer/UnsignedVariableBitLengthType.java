@@ -39,6 +39,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
 import net.imglib2.type.AbstractBit64Type;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.type.Type;
 import net.imglib2.type.numeric.IntegerType;
@@ -56,7 +57,7 @@ import net.imglib2.util.Util;
  * @author Albert Cardona
  * @author Stephan Preibisch
  */
-public class UnsignedVariableBitLengthType extends AbstractBit64Type< UnsignedVariableBitLengthType > implements IntegerType< UnsignedVariableBitLengthType >
+public class UnsignedVariableBitLengthType extends AbstractBit64Type< UnsignedVariableBitLengthType > implements IntegerType< UnsignedVariableBitLengthType >, NativeTypeAccess< UnsignedVariableBitLengthType, LongAccess >
 {
 	// this is the constructor if you want it to read from an array
 	public UnsignedVariableBitLengthType( final NativeImg< ?, ? extends LongAccess > bitStorage, final int nBits )

@@ -38,6 +38,7 @@ import java.math.BigInteger;
 
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.basictypeaccess.LongAccess;
+import net.imglib2.type.NativeTypeAccess;
 import net.imglib2.type.NativeTypeFactory;
 import net.imglib2.util.Util;
 
@@ -48,7 +49,7 @@ import net.imglib2.util.Util;
  * @author Stephan Saalfeld
  * @author Mark Hiner
  */
-public class LongType extends GenericLongType< LongType >
+public class LongType extends GenericLongType< LongType > implements NativeTypeAccess< LongType,LongAccess >
 {
 	// this is the constructor if you want it to read from an array
 	public LongType( final NativeImg< ?, ? extends LongAccess > longStorage )
