@@ -30,7 +30,7 @@ public class ArrayImgAccessFactory<T extends NativeTypeAccess<T,A>,A> extends Ar
 	
 	public ArrayImg< T, A > create(final A data, final long... dimensions )
 	{
-		final ArrayImg< T, A > img = create(data, dimensions, type(), ( NativeTypeFactory<T,A> ) type().getNativeTypeFactory() );
+		final ArrayImg< T, A > img = create(data, dimensions, type(), type().getNativeTypeFactory() );
 		return img;
 	}
 
@@ -47,7 +47,7 @@ public class ArrayImgAccessFactory<T extends NativeTypeAccess<T,A>,A> extends Ar
 	@Override
 	public ArrayImg< T, A > create( final long... dimensions )
 	{
-		final ArrayImg< T, A > img = create( dimensions, type(), ( NativeTypeFactory<T,A> ) type().getNativeTypeFactory() );
+		final ArrayImg< T, A > img = create( dimensions, type(), type().getNativeTypeFactory() );
 		return img;
 	}
 
