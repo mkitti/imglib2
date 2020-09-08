@@ -9,6 +9,6 @@ package net.imglib2.type;
  * @param <T> NativeType implementation
  * @param <A> Access interface
  */
-public interface NativeTypeAccess<T extends NativeType<T>,A> {
+public interface NativeTypeAccess<T extends NativeType<T>,A> extends NativeType<T> {
 	public NativeTypeFactory<T,A> getNativeTypeFactory();
 }
