@@ -677,14 +677,14 @@ final public class ArrayImgs
 	 * 
 	 * @param <T> {@link NativeType} that implements {@link NativeTypeAccess}
 	 * @param <A> Access type specified by {@link NativeTypeAccess} and getNativeTypeFactory
-	 * @param type NativeType used to simply call {@link NativeType.getNativeTypeFactory}
+	 * @param type NativeType used to call {@link NativeType.getNativeTypeFactory} and {@link NativeType.getEntitiesPerPixel()}
 	 * @param access Access type compatible with T
 	 * @param dim Dimensions of the output ArrayImg
 	 * @return
 	 */
 	final public static < T extends NativeTypeAccess<T,A>,A> ArrayImg< T,A > create(final T type, final A access, final long... dim)
 	{
-		return create(type.getNativeTypeFactory(), type.getEntitiesPerPixel(), access, dim);
+		return create(type, type.getNativeTypeFactory(), access, dim);
 	}
 	
 	/**
@@ -693,30 +693,18 @@ final public class ArrayImgs
 	 * 
 	 * @param <T> {@link NativeType} that implements {@link NativeTypeAccess}
 	 * @param <A> Access type specified by {@link NativeTypeAccess} and getNativeTypeFactory
-	 * @param factory NativeTypeFactory from {@link NativeType.getNativeTypeFactory}
+	 * @param type NativeType used to call {@link NativeType.getEntitiesPerPixel()}
+	 * @param factory NativeTypeFactory such as from {@link NativeType.getNativeTypeFactory}
 	 * @param access Access type compatible with T
 	 * @param dim Dimensions of the output ArrayImg
 	 * @return
 	 */
-	final public static < T extends NativeType<T>,A> ArrayImg< T,A > create(final NativeTypeFactory<T,A> factory, final A access, final long... dim)
+	final public static < T extends NativeType<T>,A> ArrayImg< T,A > create(final T type, final NativeTypeFactory<T,A> factory, final A access, final long... dim)
 	{
-		final ArrayImg< T,A > img = new ArrayImg<>(access,dim,factory.createLinkedType(null).getEntitiesPerPixel());
+		final ArrayImg< T,A > img = new ArrayImg<>(access,dim,type.getEntitiesPerPixel());
 		final T t = factory.createLinkedType(img);
 		img.setLinkedType(t);
 		return img;
 	}
-	
-	/**
-	 * Helper version of create that accepts an entitiesPerPixel argument
-	 * @param entitiesPerPixel From NativeType.getEntitiesPerPixel()
-	 */
-	final private static < T extends NativeType<T>,A> ArrayImg< T,A > create(final NativeTypeFactory<T,A> factory, Fraction entitiesPerPixel, final A access, final long... dim)
-	{
-		final ArrayImg< T,A > img = new ArrayImg<>(access,dim,entitiesPerPixel);
-		final T t = factory.createLinkedType(img);
-		img.setLinkedType(t);
-		return img;
-	}
-
 
 }
