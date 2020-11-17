@@ -42,7 +42,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileShortAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class VolatileShortArray extends AbstractVolatileShortArray< VolatileShortArray > implements VolatileShortAccess
+public class VolatileShortArray extends AbstractVolatileShortArray< VolatileShortArray > implements VolatileShortAccess< VolatileShortArray >
 {
 	public VolatileShortArray( final int numEntities, final boolean isValid )
 	{

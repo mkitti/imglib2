@@ -34,12 +34,14 @@
 
 package net.imglib2.img.basictypeaccess.array;
 
+import net.imglib2.img.basictypeaccess.DataAccess;
+
 /**
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class ByteArray extends AbstractByteArray< ByteArray >
+public class ByteArray extends AbstractByteArray< ByteArray > implements DataAccess< ByteArray >
 {
 	public ByteArray( final int numEntities )
 	{

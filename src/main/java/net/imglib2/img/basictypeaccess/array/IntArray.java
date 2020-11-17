@@ -34,12 +34,14 @@
 
 package net.imglib2.img.basictypeaccess.array;
 
+import net.imglib2.img.basictypeaccess.DataAccess;
+
 /**
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class IntArray extends AbstractIntArray< IntArray >
+public class IntArray extends AbstractIntArray< IntArray > implements DataAccess< IntArray >
 {
 	protected int data[];
 

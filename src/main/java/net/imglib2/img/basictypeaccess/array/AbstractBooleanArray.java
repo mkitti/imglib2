@@ -40,7 +40,7 @@ import net.imglib2.img.basictypeaccess.BooleanAccess;
  *
  * @author Curtis Rueden
  */
-public abstract class AbstractBooleanArray< A extends AbstractBooleanArray< A > > implements BooleanAccess, ArrayDataAccess< A >
+public abstract class AbstractBooleanArray< A extends AbstractBooleanArray< A > > implements BooleanAccess< A >, ArrayDataAccess< A >
 {
 	protected boolean[] data;
 

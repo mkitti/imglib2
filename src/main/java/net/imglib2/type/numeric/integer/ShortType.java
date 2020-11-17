@@ -49,7 +49,7 @@ import net.imglib2.type.NativeTypeFactory;
 public class ShortType extends GenericShortType< ShortType >
 {
 	// this is the constructor if you want it to read from an array
-	public ShortType( final NativeImg< ?, ? extends ShortAccess > img )
+	public ShortType( final NativeImg< ?, ? extends ShortAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -61,7 +61,7 @@ public class ShortType extends GenericShortType< ShortType >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public ShortType( final ShortAccess access )
+	public ShortType( final ShortAccess< ? > access )
 	{
 		super( access );
 	}
@@ -78,10 +78,10 @@ public class ShortType extends GenericShortType< ShortType >
 		return new ShortType( img );
 	}
 
-	private static final NativeTypeFactory< ShortType, ShortAccess > typeFactory = NativeTypeFactory.SHORT( ShortType::new );
+	private static final NativeTypeFactory< ShortType, ShortAccess< ? > > typeFactory = NativeTypeFactory.SHORT( ShortType::new );
 
 	@Override
-	public NativeTypeFactory< ShortType, ShortAccess > getNativeTypeFactory()
+	public NativeTypeFactory< ShortType, ShortAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

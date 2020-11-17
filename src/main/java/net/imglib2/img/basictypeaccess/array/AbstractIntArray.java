@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.IntAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractIntArray< A extends AbstractIntArray< A > > implements IntAccess, ArrayDataAccess< A >
+abstract public class AbstractIntArray< A extends AbstractIntArray< A > > implements IntAccess< A >, ArrayDataAccess< A >
 {
 	protected int data[];
 

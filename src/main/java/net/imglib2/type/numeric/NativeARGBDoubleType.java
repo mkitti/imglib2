@@ -51,11 +51,11 @@ public class NativeARGBDoubleType extends AbstractARGBDoubleType< NativeARGBDoub
 
 	private int ai = 0, ri = 1, gi = 2, bi = 3;
 
-	final protected NativeImg< ?, ? extends DoubleAccess > img;
+	final protected NativeImg< ?, ? extends DoubleAccess< ? > > img;
 
-	protected DoubleAccess dataAccess;
+	protected DoubleAccess< ? > dataAccess;
 
-	public NativeARGBDoubleType( final NativeImg< ?, ? extends DoubleAccess > img )
+	public NativeARGBDoubleType( final NativeImg< ?, ? extends DoubleAccess< ? > > img )
 	{
 		this.img = img;
 	}
@@ -67,7 +67,7 @@ public class NativeARGBDoubleType extends AbstractARGBDoubleType< NativeARGBDoub
 		set( a, r, g, b );
 	}
 
-	public NativeARGBDoubleType( final DoubleAccess access )
+	public NativeARGBDoubleType( final DoubleAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -90,10 +90,10 @@ public class NativeARGBDoubleType extends AbstractARGBDoubleType< NativeARGBDoub
 		return new NativeARGBDoubleType( img );
 	}
 
-	private static final NativeTypeFactory< NativeARGBDoubleType, DoubleAccess > typeFactory = NativeTypeFactory.DOUBLE( NativeARGBDoubleType::new );
+	private static final NativeTypeFactory< NativeARGBDoubleType, DoubleAccess< ? > > typeFactory = NativeTypeFactory.DOUBLE( NativeARGBDoubleType::new );
 
 	@Override
-	public NativeTypeFactory< NativeARGBDoubleType, DoubleAccess > getNativeTypeFactory()
+	public NativeTypeFactory< NativeARGBDoubleType, DoubleAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

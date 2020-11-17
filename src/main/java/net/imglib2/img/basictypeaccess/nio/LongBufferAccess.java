@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileLongAccess;
  * 
  * @author Mark Kittisopikul
  */
-public class LongBufferAccess extends AbstractBufferAccess< LongBufferAccess, LongBuffer > implements VolatileLongAccess
+public class LongBufferAccess extends AbstractBufferAccess< LongBufferAccess, LongBuffer > implements VolatileLongAccess< LongBufferAccess >
 {
 
 	/**

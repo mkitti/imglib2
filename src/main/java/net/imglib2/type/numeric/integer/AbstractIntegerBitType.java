@@ -60,7 +60,7 @@ public abstract class AbstractIntegerBitType< T extends AbstractIntegerBitType< 
 
 	// this is the constructor if you want it to read from an array
 	public AbstractIntegerBitType(
-			final NativeImg< ?, ? extends LongAccess > bitStorage,
+			final NativeImg< ?, ? extends LongAccess< ? > > bitStorage,
 			final int nBits )
 	{
 		super( bitStorage, nBits );

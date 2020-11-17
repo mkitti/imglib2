@@ -58,7 +58,7 @@ public class UnsignedLongType extends GenericLongType< UnsignedLongType >
 	private static final double MAX_LONG_PLUS_ONE = Math.pow( 2, 63 ); // not precise, because double is not sufficient
 
 	// this is the constructor if you want it to read from an array
-	public UnsignedLongType( final NativeImg< ?, ? extends LongAccess > img )
+	public UnsignedLongType( final NativeImg< ?, ? extends LongAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -72,13 +72,13 @@ public class UnsignedLongType extends GenericLongType< UnsignedLongType >
 	// this is the constructor if you want it to be a variable
 	public UnsignedLongType( final BigInteger value )
 	{
-		super( ( NativeImg< ?, ? extends LongAccess > ) null );
+		super( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 1 );
 		set( value.longValue() );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public UnsignedLongType( final LongAccess access )
+	public UnsignedLongType( final LongAccess< ? > access )
 	{
 		super( access );
 	}
@@ -95,10 +95,10 @@ public class UnsignedLongType extends GenericLongType< UnsignedLongType >
 		return new UnsignedLongType( img );
 	}
 
-	private static final NativeTypeFactory< UnsignedLongType, LongAccess > typeFactory = NativeTypeFactory.LONG( UnsignedLongType::new );
+	private static final NativeTypeFactory< UnsignedLongType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( UnsignedLongType::new );
 
 	@Override
-	public NativeTypeFactory< UnsignedLongType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< UnsignedLongType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

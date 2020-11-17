@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileDoubleAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class DirtyVolatileDoubleArray extends AbstractVolatileDoubleArray< DirtyVolatileDoubleArray > implements VolatileDoubleAccess, Dirty
+public class DirtyVolatileDoubleArray extends AbstractVolatileDoubleArray< DirtyVolatileDoubleArray > implements VolatileDoubleAccess< DirtyVolatileDoubleArray >, Dirty
 {
 	protected boolean dirty = false;
 

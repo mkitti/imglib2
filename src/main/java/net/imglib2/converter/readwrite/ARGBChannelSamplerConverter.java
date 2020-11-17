@@ -73,7 +73,7 @@ public final class ARGBChannelSamplerConverter implements SamplerConverter< ARGB
 		return new UnsignedByteType( new ARGBChannelConvertingAccess( sampler ) );
 	}
 
-	final private class ARGBChannelConvertingAccess implements ByteAccess
+	final private class ARGBChannelConvertingAccess implements ByteAccess< ARGBChannelConvertingAccess >
 	{
 		final private Sampler< ? extends ARGBType > sampler;
 

@@ -37,7 +37,7 @@ package net.imglib2.img.sparse;
 import net.imglib2.img.basictypeaccess.DataAccess;
 import net.imglib2.img.sparse.NtreeImg.PositionProvider;
 
-public interface NtreeAccess< L extends Comparable< L >, A extends NtreeAccess< L, A > > extends DataAccess
+public interface NtreeAccess< L extends Comparable< L >, A extends NtreeAccess< L, A > > extends DataAccess< A >
 {
 
 	Ntree< L > getCurrentStorageNtree();

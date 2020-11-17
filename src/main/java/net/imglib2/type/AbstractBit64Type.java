@@ -62,7 +62,7 @@ public abstract class AbstractBit64Type< T extends AbstractBit64Type< T > > exte
 	private final long invMask;
 
 	// this is the constructor if you want it to read from an array
-	public AbstractBit64Type( final NativeImg< ?, ? extends LongAccess > bitStorage, final int nBits )
+	public AbstractBit64Type( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage, final int nBits )
 	{
 		super( bitStorage, nBits );
 
@@ -78,16 +78,16 @@ public abstract class AbstractBit64Type< T extends AbstractBit64Type< T > > exte
 	// this is the constructor if you want it to be a variable
 	public AbstractBit64Type( final long value, final int nBits )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null, nBits );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null, nBits );
 		updateIndex( 0 );
 		dataAccess = new LongArray( 1 );
 		setBits( value );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public AbstractBit64Type( final LongAccess access, final int nBits )
+	public AbstractBit64Type( final LongAccess<?> access, final int nBits )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null, nBits );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null, nBits );
 		updateIndex( 0 );
 		dataAccess = access;
 	}

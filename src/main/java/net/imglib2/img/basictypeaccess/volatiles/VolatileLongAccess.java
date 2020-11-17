@@ -39,5 +39,5 @@ import net.imglib2.img.basictypeaccess.LongAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public interface VolatileLongAccess extends LongAccess, VolatileAccess
+public interface VolatileLongAccess< A extends VolatileLongAccess< A > > extends LongAccess< A >, VolatileAccess
 {}

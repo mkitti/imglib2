@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.FloatAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class FloatNtree implements FloatAccess, NtreeAccess< Float, FloatNtree >
+public final class FloatNtree implements FloatAccess< FloatNtree >, NtreeAccess< Float, FloatNtree >
 {
 	private final long[] position;
 

@@ -40,7 +40,7 @@ package net.imglib2.img.basictypeaccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public interface FloatAccess extends DataAccess
+public interface FloatAccess < A extends DataAccess< A > > extends DataAccess< A >
 {
 	public float getValue( final int index );
 

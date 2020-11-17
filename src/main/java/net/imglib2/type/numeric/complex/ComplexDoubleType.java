@@ -54,13 +54,13 @@ public class ComplexDoubleType extends AbstractComplexType< ComplexDoubleType > 
 	// the indices for real and imaginary value
 	private int realI = 0, imaginaryI = 1;
 
-	final protected NativeImg< ?, ? extends DoubleAccess > img;
+	final protected NativeImg< ?, ? extends DoubleAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected DoubleAccess dataAccess;
+	protected DoubleAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public ComplexDoubleType( final NativeImg< ?, ? extends DoubleAccess > complexfloatStorage )
+	public ComplexDoubleType( final NativeImg< ?, ? extends DoubleAccess< ? > > complexfloatStorage )
 	{
 		img = complexfloatStorage;
 	}
@@ -74,7 +74,7 @@ public class ComplexDoubleType extends AbstractComplexType< ComplexDoubleType > 
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public ComplexDoubleType( final DoubleAccess access )
+	public ComplexDoubleType( final DoubleAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -98,10 +98,10 @@ public class ComplexDoubleType extends AbstractComplexType< ComplexDoubleType > 
 		return new ComplexDoubleType( img );
 	}
 
-	private static final NativeTypeFactory< ComplexDoubleType, DoubleAccess > typeFactory = NativeTypeFactory.DOUBLE( ComplexDoubleType::new );
+	private static final NativeTypeFactory< ComplexDoubleType, DoubleAccess< ? > > typeFactory = NativeTypeFactory.DOUBLE( ComplexDoubleType::new );
 
 	@Override
-	public NativeTypeFactory< ComplexDoubleType, DoubleAccess > getNativeTypeFactory()
+	public NativeTypeFactory< ComplexDoubleType, DoubleAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

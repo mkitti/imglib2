@@ -53,7 +53,7 @@ public class Unsigned12BitType extends AbstractIntegerBitType< Unsigned12BitType
 	private final long mask;
 
 	// this is the constructor if you want it to read from an array
-	public Unsigned12BitType( final NativeImg< ?, ? extends LongAccess > bitStorage )
+	public Unsigned12BitType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage )
 	{
 		super( bitStorage, 12 );
 		this.mask = 4095; // 111111111111 in binary
@@ -62,15 +62,15 @@ public class Unsigned12BitType extends AbstractIntegerBitType< Unsigned12BitType
 	// this is the constructor if you want it to be a variable
 	public Unsigned12BitType( final long value )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 1 );
 		set( value );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public Unsigned12BitType( final LongAccess access )
+	public Unsigned12BitType( final LongAccess< ? > access )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = access;
 	}
 
@@ -86,10 +86,10 @@ public class Unsigned12BitType extends AbstractIntegerBitType< Unsigned12BitType
 		return new Unsigned12BitType( img );
 	}
 
-	private static final NativeTypeFactory< Unsigned12BitType, LongAccess > typeFactory = NativeTypeFactory.LONG( Unsigned12BitType::new );
+	private static final NativeTypeFactory< Unsigned12BitType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( Unsigned12BitType::new );
 
 	@Override
-	public NativeTypeFactory< Unsigned12BitType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< Unsigned12BitType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

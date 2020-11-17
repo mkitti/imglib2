@@ -51,13 +51,13 @@ import net.imglib2.util.Util;
 public class LongType extends GenericLongType< LongType >
 {
 	// this is the constructor if you want it to read from an array
-	public LongType( final NativeImg< ?, ? extends LongAccess > longStorage )
+	public LongType( final NativeImg< ?, ? extends LongAccess< ? > > longStorage )
 	{
 		super( longStorage );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public LongType( final LongAccess access )
+	public LongType( final LongAccess< ? > access )
 	{
 		super( access );
 	}
@@ -80,10 +80,10 @@ public class LongType extends GenericLongType< LongType >
 		return new LongType( img );
 	}
 
-	private static final NativeTypeFactory< LongType, LongAccess > typeFactory = NativeTypeFactory.LONG( LongType::new );
+	private static final NativeTypeFactory< LongType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( LongType::new );
 
 	@Override
-	public NativeTypeFactory< LongType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< LongType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

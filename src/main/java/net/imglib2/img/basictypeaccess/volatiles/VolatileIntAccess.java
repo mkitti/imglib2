@@ -39,5 +39,5 @@ import net.imglib2.img.basictypeaccess.IntAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public interface VolatileIntAccess extends IntAccess, VolatileAccess
+public interface VolatileIntAccess< A extends VolatileIntAccess< A > > extends IntAccess< A >, VolatileAccess
 {}

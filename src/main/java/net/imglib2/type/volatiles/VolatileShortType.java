@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.integer.ShortType;
  */
 public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType, VolatileShortType >
 {
-	final protected NativeImg< ?, ? extends VolatileShortAccess > img;
+	final protected NativeImg< ?, ? extends VolatileShortAccess< ? > > img;
 
 	private static class WrappedShortType extends ShortType
 	{
-		public WrappedShortType( final NativeImg<?, ? extends ShortAccess> img )
+		public WrappedShortType( final NativeImg<?, ? extends ShortAccess< ? >> img )
 		{
 			super( img );
 		}
 
-		public WrappedShortType( final ShortAccess access )
+		public WrappedShortType( final ShortAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final ShortAccess access )
+		public void setAccess( final ShortAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileShortType( final NativeImg< ?, ? extends VolatileShortAccess > img )
+	public VolatileShortType( final NativeImg< ?, ? extends VolatileShortAccess< ? > > img )
 	{
 		super( new WrappedShortType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileShortType( final VolatileShortAccess access )
+	public VolatileShortType( final VolatileShortAccess< ? > access )
 	{
 		super( new WrappedShortType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileShortAccess a = img.update( c );
+		final VolatileShortAccess< ? > a = img.update( c );
 		( (WrappedShortType) t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileShortType extends AbstractVolatileNativeRealType< ShortType
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileShortType, VolatileShortAccess > typeFactory = NativeTypeFactory.SHORT( VolatileShortType::new );
+	private static final NativeTypeFactory< VolatileShortType, VolatileShortAccess< ? > > typeFactory = NativeTypeFactory.SHORT( VolatileShortType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileShortType, ? > getNativeTypeFactory()

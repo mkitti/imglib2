@@ -40,5 +40,5 @@ import net.imglib2.img.basictypeaccess.ByteAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public interface VolatileByteAccess extends ByteAccess, VolatileAccess
+public interface VolatileByteAccess< A extends VolatileByteAccess< A > > extends ByteAccess< A >, VolatileAccess
 {}

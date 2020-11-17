@@ -97,7 +97,7 @@ public class BasePairBitType extends AbstractBit64Type< BasePairBitType > implem
 	}
 
 	// this is the constructor if you want it to read from an array
-	public BasePairBitType( final NativeImg< ?, ? extends LongAccess > bitStorage )
+	public BasePairBitType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage )
 	{
 		super( bitStorage, NBITS );
 	}
@@ -117,10 +117,10 @@ public class BasePairBitType extends AbstractBit64Type< BasePairBitType > implem
 	@Override
 	public BasePairBitType duplicateTypeOnSameNativeImg() { return new BasePairBitType( img ); }
 
-	private static final NativeTypeFactory< BasePairBitType, LongAccess > typeFactory = NativeTypeFactory.LONG( BasePairBitType::new );
+	private static final NativeTypeFactory< BasePairBitType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( BasePairBitType::new );
 
 	@Override
-	public NativeTypeFactory< BasePairBitType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< BasePairBitType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

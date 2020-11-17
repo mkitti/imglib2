@@ -120,7 +120,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link UnsignedByteType},
 	 * {@link ByteAccess}&gt; using a {@link ByteAccess} passed as argument.
 	 */
-	final public static < A extends ByteAccess > ArrayImg< UnsignedByteType, A > unsignedBytes( final A access, final long... dim )
+	final public static < A extends ByteAccess< A > > ArrayImg< UnsignedByteType, A > unsignedBytes( final A access, final long... dim )
 	{
 		final ArrayImg< UnsignedByteType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final UnsignedByteType t = new UnsignedByteType( img );
@@ -150,7 +150,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link ByteType}, {@link ByteAccess}&gt;
 	 * using a {@link ByteAccess} passed as argument.
 	 */
-	final public static < A extends ByteAccess > ArrayImg< ByteType, A > bytes( final A access, final long... dim )
+	final public static < A extends ByteAccess< A > > ArrayImg< ByteType, A > bytes( final A access, final long... dim )
 	{
 		final ArrayImg< ByteType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final ByteType t = new ByteType( img );
@@ -181,7 +181,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link UnsignedShortType},
 	 * {@link ShortAccess}&gt; using a {@link ShortAccess} passed as argument.
 	 */
-	final public static < A extends ShortAccess > ArrayImg< UnsignedShortType, A > unsignedShorts( final A access, final long... dim )
+	final public static < A extends ShortAccess< A > > ArrayImg< UnsignedShortType, A > unsignedShorts( final A access, final long... dim )
 	{
 		final ArrayImg< UnsignedShortType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final UnsignedShortType t = new UnsignedShortType( img );
@@ -211,7 +211,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link ShortType}, {@link ShortAccess}&gt;
 	 * using a {@link ShortAccess} passed as argument.
 	 */
-	final public static < A extends ShortAccess > ArrayImg< ShortType, A > shorts( final A access, final long... dim )
+	final public static < A extends ShortAccess< A > > ArrayImg< ShortType, A > shorts( final A access, final long... dim )
 	{
 		final ArrayImg< ShortType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final ShortType t = new ShortType( img );
@@ -241,7 +241,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link UnsignedIntType},
 	 * {@link IntAccess}&gt; using a {@link IntAccess} passed as argument.
 	 */
-	final public static < A extends IntAccess > ArrayImg< UnsignedIntType, A > unsignedInts( final A access, final long... dim )
+	final public static < A extends IntAccess< A > > ArrayImg< UnsignedIntType, A > unsignedInts( final A access, final long... dim )
 	{
 		final ArrayImg< UnsignedIntType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final UnsignedIntType t = new UnsignedIntType( img );
@@ -271,7 +271,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link IntType}, {@link IntAccess}&gt;
 	 * using a {@link IntAccess} passed as argument.
 	 */
-	final public static < A extends IntAccess > ArrayImg< IntType, A > ints( final A access, final long... dim )
+	final public static < A extends IntAccess< A >  > ArrayImg< IntType, A > ints( final A access, final long... dim )
 	{
 		final ArrayImg< IntType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final IntType t = new IntType( img );
@@ -313,7 +313,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link UnsignedLongType},
 	 * {@link LongAccess}&gt; using a {@link LongAccess} passed as argument.
 	 */
-	final public static < A extends LongAccess > ArrayImg< UnsignedLongType, A > unsignedLongs( final A access, final long... dim )
+	final public static < A extends LongAccess< A > > ArrayImg< UnsignedLongType, A > unsignedLongs( final A access, final long... dim )
 	{
 		final ArrayImg< UnsignedLongType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final UnsignedLongType t = new UnsignedLongType( img );
@@ -343,7 +343,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link LongType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final public static < A extends LongAccess > ArrayImg< LongType, A > longs( final A access, final long... dim )
+	final public static < A extends LongAccess< A > > ArrayImg< LongType, A > longs( final A access, final long... dim )
 	{
 		final ArrayImg< LongType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final LongType t = new LongType( img );
@@ -373,7 +373,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link NativeBoolType},
 	 * {@link BooleanAccess}&gt; using a {@link BooleanAccess} passed as argument.
 	 */
-	final public static < A extends BooleanAccess > ArrayImg< NativeBoolType, A > booleans( final A access, final long... dim )
+	final public static < A extends BooleanAccess< A > > ArrayImg< NativeBoolType, A > booleans( final A access, final long... dim )
 	{
 		final ArrayImg< NativeBoolType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final NativeBoolType t = new NativeBoolType( img );
@@ -394,7 +394,7 @@ final public class ArrayImgs
 	 * @deprecated use {@link #booleans(BooleanAccess, long...)}
 	 */
 	@Deprecated
-	final static public < A extends BooleanAccess > ArrayImg< NativeBoolType, A > bits( final A access, final long... dim )
+	final static public < A extends BooleanAccess< A > > ArrayImg< NativeBoolType, A > bits( final A access, final long... dim )
 	{
 		return booleans( access, dim );
 	}
@@ -403,7 +403,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link BitType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< BitType, A > bits( final A access, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< BitType, A > bits( final A access, final long... dim )
 	{
 		final ArrayImg< BitType, A > img = new ArrayImg<>( access, dim, new Fraction( 1, 64 ) );
 		final BitType t = new BitType( img );
@@ -424,7 +424,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link Unsigned2BitType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< Unsigned2BitType, A > unsigned2Bits( final A access, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< Unsigned2BitType, A > unsigned2Bits( final A access, final long... dim )
 	{
 		final ArrayImg< Unsigned2BitType, A > img = new ArrayImg<>( access, dim, new Fraction( 2, 64 ) );
 		final Unsigned2BitType t = new Unsigned2BitType( img );
@@ -445,7 +445,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link Unsigned4BitType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< Unsigned4BitType, A > unsigned4Bits( final A access, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< Unsigned4BitType, A > unsigned4Bits( final A access, final long... dim )
 	{
 		final ArrayImg< Unsigned4BitType, A > img = new ArrayImg<>( access, dim, new Fraction( 4, 64 ) );
 		final Unsigned4BitType t = new Unsigned4BitType( img );
@@ -466,7 +466,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link Unsigned12BitType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< Unsigned12BitType, A > unsigned12Bits( final A access, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< Unsigned12BitType, A > unsigned12Bits( final A access, final long... dim )
 	{
 		final ArrayImg< Unsigned12BitType, A > img = new ArrayImg<>( access, dim, new Fraction( 12, 64 ) );
 		final Unsigned12BitType t = new Unsigned12BitType( img );
@@ -487,7 +487,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link Unsigned128BitType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< Unsigned128BitType, A > unsigned128Bits( final A access, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< Unsigned128BitType, A > unsigned128Bits( final A access, final long... dim )
 	{
 		final ArrayImg< Unsigned128BitType, A > img = new ArrayImg<>( access, dim, new Fraction( 128, 64 ) );
 		final Unsigned128BitType t = new Unsigned128BitType( img );
@@ -508,7 +508,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link UnsignedVariableBitLengthType}, {@link LongAccess}&gt;
 	 * using a {@link LongAccess} passed as argument.
 	 */
-	final static public < A extends LongAccess > ArrayImg< UnsignedVariableBitLengthType, A > unsignedVariableBitLengths( final A access, final int nbits, final long... dim )
+	final static public < A extends LongAccess< A > > ArrayImg< UnsignedVariableBitLengthType, A > unsignedVariableBitLengths( final A access, final int nbits, final long... dim )
 	{
 		final ArrayImg< UnsignedVariableBitLengthType, A > img = new ArrayImg<>( access, dim, new Fraction( nbits, 64 ) );
 		final UnsignedVariableBitLengthType t = new UnsignedVariableBitLengthType( img, nbits );
@@ -538,7 +538,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link FloatType}, {@link FloatAccess}&gt;
 	 * using a {@link FloatAccess} passed as argument.
 	 */
-	final static public < A extends FloatAccess > ArrayImg< FloatType, A > floats( final A access, final long... dim )
+	final static public < A extends FloatAccess< A > > ArrayImg< FloatType, A > floats( final A access, final long... dim )
 	{
 		final ArrayImg< FloatType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final FloatType t = new FloatType( img );
@@ -568,7 +568,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link DoubleType},
 	 * {@link DoubleAccess}&gt; using a {@link DoubleAccess} passed as argument.
 	 */
-	final static public < A extends DoubleAccess > ArrayImg< DoubleType, A > doubles( final A access, final long... dim )
+	final static public < A extends DoubleAccess< A > > ArrayImg< DoubleType, A > doubles( final A access, final long... dim )
 	{
 		final ArrayImg< DoubleType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final DoubleType t = new DoubleType( img );
@@ -598,7 +598,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link ARGBType}, {@link IntAccess}&gt;
 	 * using a {@link IntAccess} passed as argument.
 	 */
-	final static public < A extends IntAccess > ArrayImg< ARGBType, A > argbs( final A access, final long... dim )
+	final static public < A extends IntAccess< A > > ArrayImg< ARGBType, A > argbs( final A access, final long... dim )
 	{
 		final ArrayImg< ARGBType, A > img = new ArrayImg<>( access, dim, new Fraction() );
 		final ARGBType t = new ARGBType( img );
@@ -628,7 +628,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link ComplexFloatType},
 	 * {@link FloatAccess}&gt; using a {@link FloatAccess} passed as argument.
 	 */
-	final public static < A extends FloatAccess > ArrayImg< ComplexFloatType, A > complexFloats( final A access, final long... dim )
+	final public static < A extends FloatAccess< A > > ArrayImg< ComplexFloatType, A > complexFloats( final A access, final long... dim )
 	{
 		final ArrayImg< ComplexFloatType, A > img = new ArrayImg<>( access, dim, new Fraction( 2, 1 ) );
 		final ComplexFloatType t = new ComplexFloatType( img );
@@ -659,7 +659,7 @@ final public class ArrayImgs
 	 * Creates an {@link ArrayImg}&lt;{@link ComplexDoubleType},
 	 * {@link DoubleAccess}&gt; using a {@link DoubleAccess} passed as argument.
 	 */
-	final public static < A extends DoubleAccess > ArrayImg< ComplexDoubleType, A > complexDoubles( final A access, final long... dim )
+	final public static < A extends DoubleAccess< A > > ArrayImg< ComplexDoubleType, A > complexDoubles( final A access, final long... dim )
 	{
 		final ArrayImg< ComplexDoubleType, A > img = new ArrayImg<>( access, dim, new Fraction( 2, 1 ) );
 		final ComplexDoubleType t = new ComplexDoubleType( img );

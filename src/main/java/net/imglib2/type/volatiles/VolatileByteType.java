@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.integer.ByteType;
  */
 public class VolatileByteType extends AbstractVolatileNativeRealType< ByteType, VolatileByteType >
 {
-	final protected NativeImg< ?, ? extends VolatileByteAccess > img;
+	final protected NativeImg< ?, ? extends VolatileByteAccess< ? > > img;
 
 	private static class WrappedByteType extends ByteType
 	{
-		public WrappedByteType( final NativeImg<?, ? extends ByteAccess> img )
+		public WrappedByteType( final NativeImg<?, ? extends ByteAccess< ? > > img )
 		{
 			super( img );
 		}
 
-		public WrappedByteType( final ByteAccess access )
+		public WrappedByteType( final ByteAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final ByteAccess access )
+		public void setAccess( final ByteAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileByteType( final NativeImg< ?, ? extends VolatileByteAccess > img )
+	public VolatileByteType( final NativeImg< ?, ? extends VolatileByteAccess< ? > > img )
 	{
 		super( new WrappedByteType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileByteType( final VolatileByteAccess access )
+	public VolatileByteType( final VolatileByteAccess< ? > access )
 	{
 		super( new WrappedByteType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileByteType extends AbstractVolatileNativeRealType< ByteType, 
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileByteAccess a = img.update( c );
+		final VolatileByteAccess< ? > a = img.update( c );
 		( (WrappedByteType) t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileByteType extends AbstractVolatileNativeRealType< ByteType, 
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileByteType, VolatileByteAccess > typeFactory = NativeTypeFactory.BYTE( VolatileByteType::new );
+	private static final NativeTypeFactory< VolatileByteType, VolatileByteAccess< ? > > typeFactory = NativeTypeFactory.BYTE( VolatileByteType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileByteType, ? > getNativeTypeFactory()

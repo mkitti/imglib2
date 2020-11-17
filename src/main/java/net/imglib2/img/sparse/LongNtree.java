@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.LongAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class LongNtree implements LongAccess, NtreeAccess< Long, LongNtree >
+public final class LongNtree implements LongAccess< LongNtree >, NtreeAccess< Long, LongNtree >
 {
 
 	private final long[] position;

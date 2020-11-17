@@ -52,13 +52,13 @@ public abstract class GenericIntType< T extends GenericIntType< T > > extends Ab
 {
 	int i = 0;
 
-	final protected NativeImg< ?, ? extends IntAccess > img;
+	final protected NativeImg< ?, ? extends IntAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected IntAccess dataAccess;
+	protected IntAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public GenericIntType( final NativeImg< ?, ? extends IntAccess > intStorage )
+	public GenericIntType( final NativeImg< ?, ? extends IntAccess< ? > > intStorage )
 	{
 		img = intStorage;
 	}
@@ -72,7 +72,7 @@ public abstract class GenericIntType< T extends GenericIntType< T > > extends Ab
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public GenericIntType( final IntAccess access )
+	public GenericIntType( final IntAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -97,7 +97,7 @@ public abstract class GenericIntType< T extends GenericIntType< T > > extends Ab
 	}
 
 	@Override
-	public abstract NativeTypeFactory< T, IntAccess > getNativeTypeFactory();
+	public abstract NativeTypeFactory< T, IntAccess< ? > > getNativeTypeFactory();
 
 	/**
 	 * @deprecated Use {@link #getInt()} instead.

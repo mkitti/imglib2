@@ -61,16 +61,16 @@ public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType 
 {
 	private int i = 0;
 
-	final protected NativeImg< ?, ? extends LongAccess > img;
+	final protected NativeImg< ?, ? extends LongAccess< ? > > img;
 
 	// 17, so the first byte is 0 to mean positive integer
 	final protected byte[] bytes = new byte[ 17 ];
 
 	// the DataAccess that holds the information
-	protected LongAccess dataAccess;
+	protected LongAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public Unsigned128BitType( final NativeImg< ?, ? extends LongAccess > bitStorage )
+	public Unsigned128BitType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage )
 	{
 		img = bitStorage;
 	}
@@ -78,7 +78,7 @@ public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType 
 	// this is the constructor if you want it to be a variable
 	public Unsigned128BitType( final long lower, final long upper )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 2 );
 		set( lower, upper );
 	}
@@ -86,15 +86,15 @@ public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType 
 	// this is the constructor if you want it to be a variable
 	public Unsigned128BitType( final BigInteger value )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 2 );
 		set( value );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public Unsigned128BitType( final LongAccess access )
+	public Unsigned128BitType( final LongAccess< ? > access )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = access;
 	}
 
@@ -116,10 +116,10 @@ public class Unsigned128BitType extends AbstractIntegerType< Unsigned128BitType 
 		return new Unsigned128BitType( img );
 	}
 
-	private static final NativeTypeFactory< Unsigned128BitType, LongAccess > typeFactory = NativeTypeFactory.LONG( Unsigned128BitType::new );
+	private static final NativeTypeFactory< Unsigned128BitType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( Unsigned128BitType::new );
 
 	@Override
-	public NativeTypeFactory< Unsigned128BitType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< Unsigned128BitType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

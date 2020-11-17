@@ -39,7 +39,7 @@ package net.imglib2.img.basictypeaccess;
  * 
  * @author Curtis Rueden
  */
-public interface BooleanAccess extends DataAccess
+public interface BooleanAccess < A extends DataAccess< A > > extends DataAccess< A >
 {
 	public boolean getValue( final int index );
 

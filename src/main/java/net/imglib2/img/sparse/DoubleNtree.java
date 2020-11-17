@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.DoubleAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class DoubleNtree implements DoubleAccess, NtreeAccess< Double, DoubleNtree >
+public final class DoubleNtree implements DoubleAccess< DoubleNtree >, NtreeAccess< Double, DoubleNtree >
 {
 	private final long[] position;
 

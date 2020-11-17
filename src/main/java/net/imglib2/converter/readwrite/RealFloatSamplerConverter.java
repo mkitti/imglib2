@@ -51,7 +51,7 @@ public final class RealFloatSamplerConverter< R extends RealType< R > > implemen
 		return new FloatType( new RealConvertingFloatAccess< R >( sampler ) );
 	}
 
-	private static final class RealConvertingFloatAccess< R extends RealType< R > > implements FloatAccess
+	private static final class RealConvertingFloatAccess< R extends RealType< R > > implements FloatAccess< RealConvertingFloatAccess<R> >
 	{
 		private final Sampler< ? extends R > sampler;
 

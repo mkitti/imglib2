@@ -40,5 +40,5 @@ import net.imglib2.img.basictypeaccess.DoubleAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public interface VolatileDoubleAccess extends DoubleAccess, VolatileAccess
+public interface VolatileDoubleAccess< A extends VolatileDoubleAccess< A > > extends DoubleAccess< A >, VolatileAccess
 {}

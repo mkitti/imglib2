@@ -45,7 +45,7 @@ import net.imglib2.img.basictypeaccess.DataAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public interface ArrayDataAccess< A > extends DataAccess, Serializable
+public interface ArrayDataAccess< A extends ArrayDataAccess< A > > extends DataAccess< A >, Serializable
 {
 	A createArray( int numEntities );
 

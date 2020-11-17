@@ -50,7 +50,7 @@ import net.imglib2.util.Util;
 public class UnsignedShortType extends GenericShortType< UnsignedShortType >
 {
 	// this is the constructor if you want it to read from an array
-	public UnsignedShortType( final NativeImg< ?, ? extends ShortAccess > img )
+	public UnsignedShortType( final NativeImg< ?, ? extends ShortAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -62,7 +62,7 @@ public class UnsignedShortType extends GenericShortType< UnsignedShortType >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public UnsignedShortType( final ShortAccess access )
+	public UnsignedShortType( final ShortAccess< ? > access )
 	{
 		super( access );
 	}
@@ -99,10 +99,10 @@ public class UnsignedShortType extends GenericShortType< UnsignedShortType >
 		return new UnsignedShortType( img );
 	}
 
-	private static final NativeTypeFactory< UnsignedShortType, ShortAccess > typeFactory = NativeTypeFactory.SHORT( UnsignedShortType::new );
+	private static final NativeTypeFactory< UnsignedShortType, ShortAccess< ? > > typeFactory = NativeTypeFactory.SHORT( UnsignedShortType::new );
 
 	@Override
-	public NativeTypeFactory< UnsignedShortType, ShortAccess > getNativeTypeFactory()
+	public NativeTypeFactory< UnsignedShortType, ShortAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

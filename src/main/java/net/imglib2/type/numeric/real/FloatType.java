@@ -52,13 +52,13 @@ public class FloatType extends AbstractRealType< FloatType > implements NativeTy
 {
 	private int i = 0;
 
-	final protected NativeImg< ?, ? extends FloatAccess > img;
+	final protected NativeImg< ?, ? extends FloatAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected FloatAccess dataAccess;
+	protected FloatAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public FloatType( final NativeImg< ?, ? extends FloatAccess > floatStorage )
+	public FloatType( final NativeImg< ?, ? extends FloatAccess< ? > > floatStorage )
 	{
 		img = floatStorage;
 	}
@@ -72,7 +72,7 @@ public class FloatType extends AbstractRealType< FloatType > implements NativeTy
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public FloatType( final FloatAccess access )
+	public FloatType( final FloatAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -96,10 +96,10 @@ public class FloatType extends AbstractRealType< FloatType > implements NativeTy
 		return new FloatType( img );
 	}
 
-	private static final NativeTypeFactory< FloatType, FloatAccess > typeFactory = NativeTypeFactory.FLOAT( FloatType::new );
+	private static final NativeTypeFactory< FloatType, FloatAccess< ? > > typeFactory = NativeTypeFactory.FLOAT( FloatType::new );
 
 	@Override
-	public NativeTypeFactory< FloatType, FloatAccess > getNativeTypeFactory()
+	public NativeTypeFactory< FloatType, FloatAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.integer.LongType;
  */
 public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, VolatileLongType >
 {
-	final protected NativeImg< ?, ? extends VolatileLongAccess > img;
+	final protected NativeImg< ?, ? extends VolatileLongAccess< ? > > img;
 
 	private static class WrappedLongType extends LongType
 	{
-		public WrappedLongType( final NativeImg<?, ? extends LongAccess> img )
+		public WrappedLongType( final NativeImg<?, ? extends LongAccess< ? >> img )
 		{
 			super( img );
 		}
 
-		public WrappedLongType( final LongAccess access )
+		public WrappedLongType( final LongAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final LongAccess access )
+		public void setAccess( final LongAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileLongType( final NativeImg< ?, ? extends VolatileLongAccess > img )
+	public VolatileLongType( final NativeImg< ?, ? extends VolatileLongAccess< ? > > img )
 	{
 		super( new WrappedLongType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileLongType( final VolatileLongAccess access )
+	public VolatileLongType( final VolatileLongAccess< ? > access )
 	{
 		super( new WrappedLongType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, 
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileLongAccess a = img.update( c );
+		final VolatileLongAccess< ? > a = img.update( c );
 		( (WrappedLongType) t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileLongType extends AbstractVolatileNativeRealType< LongType, 
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileLongType, VolatileLongAccess > typeFactory = NativeTypeFactory.LONG( VolatileLongType::new );
+	private static final NativeTypeFactory< VolatileLongType, VolatileLongAccess< ? > > typeFactory = NativeTypeFactory.LONG( VolatileLongType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileLongType, ? > getNativeTypeFactory()

@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.FloatAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractFloatArray< A extends AbstractFloatArray< A > > implements FloatAccess, ArrayDataAccess< A >
+abstract public class AbstractFloatArray< A extends AbstractFloatArray< A > > implements FloatAccess< A >, ArrayDataAccess< A >
 {
 	protected float data[];
 

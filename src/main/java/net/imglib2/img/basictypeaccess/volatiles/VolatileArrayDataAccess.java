@@ -40,7 +40,7 @@ import net.imglib2.img.basictypeaccess.array.ArrayDataAccess;
  *
  * @author Tobias Pietzsch
  */
-public interface VolatileArrayDataAccess< A > extends ArrayDataAccess< A >, VolatileAccess
+public interface VolatileArrayDataAccess< A extends VolatileArrayDataAccess< A > > extends ArrayDataAccess< A >, VolatileAccess
 {
 	A createArray( int numEntities, boolean isValid );
 }

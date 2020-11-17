@@ -49,7 +49,7 @@ import net.imglib2.type.NativeTypeFactory;
 public class ByteType extends GenericByteType< ByteType >
 {
 	// this is the constructor if you want it to read from an array
-	public ByteType( final NativeImg< ?, ? extends ByteAccess > img )
+	public ByteType( final NativeImg< ?, ? extends ByteAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -61,7 +61,7 @@ public class ByteType extends GenericByteType< ByteType >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public ByteType( final ByteAccess access )
+	public ByteType( final ByteAccess< ? > access )
 	{
 		super( access );
 	}
@@ -72,10 +72,10 @@ public class ByteType extends GenericByteType< ByteType >
 		super( ( byte ) 0 );
 	}
 
-	private static final NativeTypeFactory< ByteType, ByteAccess > typeFactory = NativeTypeFactory.BYTE( ByteType::new );
+	private static final NativeTypeFactory< ByteType, ByteAccess< ? > > typeFactory = NativeTypeFactory.BYTE( ByteType::new );
 
 	@Override
-	public NativeTypeFactory< ByteType, ByteAccess > getNativeTypeFactory()
+	public NativeTypeFactory< ByteType, ByteAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

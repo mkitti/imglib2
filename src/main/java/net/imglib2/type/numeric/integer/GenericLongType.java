@@ -50,13 +50,13 @@ public abstract class GenericLongType< T extends GenericLongType< T > > extends 
 {
 	int i = 0;
 
-	final protected NativeImg< ?, ? extends LongAccess > img;
+	final protected NativeImg< ?, ? extends LongAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected LongAccess dataAccess;
+	protected LongAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public GenericLongType( final NativeImg< ?, ? extends LongAccess > longStorage )
+	public GenericLongType( final NativeImg< ?, ? extends LongAccess< ? > > longStorage )
 	{
 		img = longStorage;
 	}
@@ -70,7 +70,7 @@ public abstract class GenericLongType< T extends GenericLongType< T > > extends 
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public GenericLongType( final LongAccess access )
+	public GenericLongType( final LongAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -95,7 +95,7 @@ public abstract class GenericLongType< T extends GenericLongType< T > > extends 
 	}
 
 	@Override
-	public abstract NativeTypeFactory< T, LongAccess > getNativeTypeFactory();
+	public abstract NativeTypeFactory< T, LongAccess< ? > > getNativeTypeFactory();
 
 	/**
 	 * @deprecated Use {@link #getLong()} instead.

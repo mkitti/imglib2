@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.ByteAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractByteArray< A extends AbstractByteArray< A > > implements ByteAccess, ArrayDataAccess< A >
+abstract public class AbstractByteArray< A extends AbstractByteArray< A > > implements ByteAccess< A >, ArrayDataAccess< A >
 {
 	protected byte data[];
 

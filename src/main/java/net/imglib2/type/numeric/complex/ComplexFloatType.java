@@ -56,13 +56,13 @@ public class ComplexFloatType extends AbstractComplexType< ComplexFloatType > im
 	// the indices for real and imaginary number
 	private int realI = 0, imaginaryI = 1;
 
-	final protected NativeImg< ?, ? extends FloatAccess > img;
+	final protected NativeImg< ?, ? extends FloatAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected FloatAccess dataAccess;
+	protected FloatAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public ComplexFloatType( final NativeImg< ?, ? extends FloatAccess > complexfloatStorage )
+	public ComplexFloatType( final NativeImg< ?, ? extends FloatAccess< ? > > complexfloatStorage )
 	{
 		img = complexfloatStorage;
 	}
@@ -76,7 +76,7 @@ public class ComplexFloatType extends AbstractComplexType< ComplexFloatType > im
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public ComplexFloatType( final FloatAccess access )
+	public ComplexFloatType( final FloatAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -100,10 +100,10 @@ public class ComplexFloatType extends AbstractComplexType< ComplexFloatType > im
 		return new ComplexFloatType( img );
 	}
 
-	private static final NativeTypeFactory< ComplexFloatType, FloatAccess > typeFactory = NativeTypeFactory.FLOAT( ComplexFloatType::new );
+	private static final NativeTypeFactory< ComplexFloatType, FloatAccess< ? > > typeFactory = NativeTypeFactory.FLOAT( ComplexFloatType::new );
 
 	@Override
-	public NativeTypeFactory< ComplexFloatType, FloatAccess > getNativeTypeFactory()
+	public NativeTypeFactory< ComplexFloatType, FloatAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

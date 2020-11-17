@@ -46,14 +46,14 @@ import java.util.function.Function;
 public class CompositeARGBSamplerConverter implements SamplerConverter< Composite< UnsignedByteType >, ARGBType >
 {
 
-	private final Function< Sampler< ? extends Composite< UnsignedByteType >>, ? extends IntAccess > factory;
+	private final Function< Sampler< ? extends Composite< UnsignedByteType >>, ? extends IntAccess< ? > > factory;
 
 	public CompositeARGBSamplerConverter( ColorChannelOrder order )
 	{
 		this.factory = getAccessFactory( order );
 	}
 
-	private Function<Sampler<? extends Composite<UnsignedByteType>>,? extends IntAccess> getAccessFactory( ColorChannelOrder order )
+	private Function<Sampler<? extends Composite<UnsignedByteType>>,? extends IntAccess< ? >> getAccessFactory( ColorChannelOrder order )
 	{
 		switch ( order ) {
 		case ARGB: return CompositeARGBAccess::new;
@@ -68,7 +68,7 @@ public class CompositeARGBSamplerConverter implements SamplerConverter< Composit
 		return new ARGBType( factory.apply( sampler ) );
 	}
 
-	private static final class CompositeARGBAccess implements IntAccess
+	private static final class CompositeARGBAccess implements IntAccess< CompositeARGBAccess >
 	{
 		private final Sampler< ? extends Composite< UnsignedByteType > > sampler;
 
@@ -98,7 +98,7 @@ public class CompositeARGBSamplerConverter implements SamplerConverter< Composit
 		}
 	}
 
-	private static final class CompositeRGBAccess implements IntAccess
+	private static final class CompositeRGBAccess implements IntAccess< CompositeRGBAccess >
 	{
 		private final Sampler< ? extends Composite< UnsignedByteType > > sampler;
 

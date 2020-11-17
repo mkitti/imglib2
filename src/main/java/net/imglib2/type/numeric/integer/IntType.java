@@ -49,7 +49,7 @@ import net.imglib2.type.NativeTypeFactory;
 public class IntType extends GenericIntType< IntType >
 {
 	// this is the constructor if you want it to read from an array
-	public IntType( final NativeImg< ?, ? extends IntAccess > img )
+	public IntType( final NativeImg< ?, ? extends IntAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -61,7 +61,7 @@ public class IntType extends GenericIntType< IntType >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public IntType( final IntAccess access )
+	public IntType( final IntAccess< ? > access )
 	{
 		super( access );
 	}
@@ -78,10 +78,10 @@ public class IntType extends GenericIntType< IntType >
 		return new IntType( img );
 	}
 
-	private static final NativeTypeFactory< IntType, IntAccess > typeFactory = NativeTypeFactory.INT( IntType::new );
+	private static final NativeTypeFactory< IntType, IntAccess< ? > > typeFactory = NativeTypeFactory.INT( IntType::new );
 
 	@Override
-	public NativeTypeFactory< IntType, IntAccess > getNativeTypeFactory()
+	public NativeTypeFactory< IntType, IntAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

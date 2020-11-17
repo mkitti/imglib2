@@ -38,5 +38,5 @@ import net.imglib2.img.basictypeaccess.ShortAccess;
 /**
  * @author Tobias Pietzsch
  */
-public interface VolatileShortAccess extends ShortAccess, VolatileAccess
+public interface VolatileShortAccess< A extends VolatileShortAccess< A > > extends ShortAccess< A >, VolatileAccess
 {}

@@ -55,13 +55,13 @@ public class NativeBoolType extends AbstractIntegerType< NativeBoolType > implem
 {
 	int i = 0;
 
-	final protected NativeImg< ?, ? extends BooleanAccess > img;
+	final protected NativeImg< ?, ? extends BooleanAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected BooleanAccess dataAccess;
+	protected BooleanAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public NativeBoolType( final NativeImg< ?, ? extends BooleanAccess > boolStorage )
+	public NativeBoolType( final NativeImg< ?, ? extends BooleanAccess< ? > > boolStorage )
 	{
 		img = boolStorage;
 	}
@@ -75,7 +75,7 @@ public class NativeBoolType extends AbstractIntegerType< NativeBoolType > implem
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public NativeBoolType( final BooleanAccess access )
+	public NativeBoolType( final BooleanAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -87,10 +87,10 @@ public class NativeBoolType extends AbstractIntegerType< NativeBoolType > implem
 		this( false );
 	}
 
-	private static final NativeTypeFactory< NativeBoolType, BooleanAccess > typeFactory = NativeTypeFactory.BOOLEAN( NativeBoolType::new );
+	private static final NativeTypeFactory< NativeBoolType, BooleanAccess< ? > > typeFactory = NativeTypeFactory.BOOLEAN( NativeBoolType::new );
 
 	@Override
-	public NativeTypeFactory< NativeBoolType, BooleanAccess > getNativeTypeFactory()
+	public NativeTypeFactory< NativeBoolType, BooleanAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

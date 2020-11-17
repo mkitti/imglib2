@@ -58,13 +58,13 @@ public class BitType extends AbstractIntegerType< BitType > implements BooleanTy
 	// Maximum count is Integer.MAX_VALUE * (64 / getBitsPerPixel())
 	protected int i = 0;
 
-	final protected NativeImg< ?, ? extends LongAccess > img;
+	final protected NativeImg< ?, ? extends LongAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected LongAccess dataAccess;
+	protected LongAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public BitType( final NativeImg< ?, ? extends LongAccess > bitStorage )
+	public BitType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage )
 	{
 		img = bitStorage;
 	}
@@ -72,15 +72,15 @@ public class BitType extends AbstractIntegerType< BitType > implements BooleanTy
 	// this is the constructor if you want it to be a variable
 	public BitType( final boolean value )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 1 );
 		set( value );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public BitType( final LongAccess access )
+	public BitType( final LongAccess< ? > access )
 	{
-		this( ( NativeImg< BitType, ? extends LongAccess > ) null );
+		this( ( NativeImg< BitType, ? extends LongAccess< ? > > ) null );
 		dataAccess = access;
 	}
 
@@ -102,10 +102,10 @@ public class BitType extends AbstractIntegerType< BitType > implements BooleanTy
 		return new BitType( img );
 	}
 
-	private static final NativeTypeFactory< BitType, LongAccess > typeFactory = NativeTypeFactory.LONG( BitType::new );
+	private static final NativeTypeFactory< BitType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( BitType::new );
 
 	@Override
-	public NativeTypeFactory< BitType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< BitType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

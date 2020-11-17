@@ -59,7 +59,7 @@ import net.imglib2.util.Util;
 public class UnsignedVariableBitLengthType extends AbstractBit64Type< UnsignedVariableBitLengthType > implements IntegerType< UnsignedVariableBitLengthType >
 {
 	// this is the constructor if you want it to read from an array
-	public UnsignedVariableBitLengthType( final NativeImg< ?, ? extends LongAccess > bitStorage, final int nBits )
+	public UnsignedVariableBitLengthType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage, final int nBits )
 	{
 		super( bitStorage, nBits );
 	}
@@ -71,7 +71,7 @@ public class UnsignedVariableBitLengthType extends AbstractBit64Type< UnsignedVa
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public UnsignedVariableBitLengthType( final LongAccess access, final int nBits )
+	public UnsignedVariableBitLengthType( final LongAccess< ? > access, final int nBits )
 	{
 		super( access, nBits );
 	}
@@ -104,10 +104,10 @@ public class UnsignedVariableBitLengthType extends AbstractBit64Type< UnsignedVa
 		return new UnsignedVariableBitLengthType( img, nBits );
 	}
 
-	private final NativeTypeFactory< UnsignedVariableBitLengthType, LongAccess > typeFactory = NativeTypeFactory.LONG( img -> new UnsignedVariableBitLengthType( img, nBits ) );
+	private final NativeTypeFactory< UnsignedVariableBitLengthType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( img -> new UnsignedVariableBitLengthType( img, nBits ) );
 
 	@Override
-	public NativeTypeFactory< UnsignedVariableBitLengthType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< UnsignedVariableBitLengthType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

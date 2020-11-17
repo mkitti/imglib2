@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.ByteAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class ByteNtree implements ByteAccess, NtreeAccess< Byte, ByteNtree >
+public final class ByteNtree implements ByteAccess< ByteNtree >, NtreeAccess< Byte, ByteNtree >
 {
 	private final long[] position;
 

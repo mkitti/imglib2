@@ -49,35 +49,35 @@ import net.imglib2.type.numeric.integer.UnsignedIntType;
  */
 public class VolatileUnsignedIntType extends AbstractVolatileNativeRealType< UnsignedIntType, VolatileUnsignedIntType >
 {
-	final protected NativeImg< ?, ? extends VolatileIntAccess > img;
+	final protected NativeImg< ?, ? extends VolatileIntAccess< ? > > img;
 
 	private static class WrappedUnsignedIntType extends UnsignedIntType
 	{
-		public WrappedUnsignedIntType( final NativeImg<?, ? extends IntAccess> img )
+		public WrappedUnsignedIntType( final NativeImg<?, ? extends IntAccess< ? > > img )
 		{
 			super( img );
 		}
 
-		public WrappedUnsignedIntType( final IntAccess access )
+		public WrappedUnsignedIntType( final IntAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final IntAccess access )
+		public void setAccess( final IntAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileUnsignedIntType( final NativeImg< ?, ? extends VolatileIntAccess > img )
+	public VolatileUnsignedIntType( final NativeImg< ?, ? extends VolatileIntAccess< ? > > img )
 	{
 		super( new WrappedUnsignedIntType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileUnsignedIntType( final VolatileIntAccess access )
+	public VolatileUnsignedIntType( final VolatileIntAccess< ? > access )
 	{
 		super( new WrappedUnsignedIntType( access ), access.isValid() );
 		this.img = null;
@@ -104,7 +104,7 @@ public class VolatileUnsignedIntType extends AbstractVolatileNativeRealType< Uns
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileIntAccess a = img.update( c );
+		final VolatileIntAccess< ? > a = img.update( c );
 		( ( WrappedUnsignedIntType ) t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -129,7 +129,7 @@ public class VolatileUnsignedIntType extends AbstractVolatileNativeRealType< Uns
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileUnsignedIntType, VolatileIntAccess > typeFactory = NativeTypeFactory.INT( VolatileUnsignedIntType::new );
+	private static final NativeTypeFactory< VolatileUnsignedIntType, VolatileIntAccess< ? > > typeFactory = NativeTypeFactory.INT( VolatileUnsignedIntType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileUnsignedIntType, ? > getNativeTypeFactory()

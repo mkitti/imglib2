@@ -42,7 +42,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileLongAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class VolatileLongArray extends AbstractVolatileLongArray< VolatileLongArray > implements VolatileLongAccess
+public class VolatileLongArray extends AbstractVolatileLongArray< VolatileLongArray > implements VolatileLongAccess< VolatileLongArray >
 {
 	public VolatileLongArray( final int numEntities, final boolean isValid )
 	{

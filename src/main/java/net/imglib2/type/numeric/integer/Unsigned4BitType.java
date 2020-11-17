@@ -53,7 +53,7 @@ public class Unsigned4BitType extends AbstractIntegerBitType< Unsigned4BitType >
 	private final static long mask = 15; // 1111 in binary
 
 	// this is the constructor if you want it to read from an array
-	public Unsigned4BitType( final NativeImg< ?, ? extends LongAccess > bitStorage )
+	public Unsigned4BitType( final NativeImg< ?, ? extends LongAccess< ? > > bitStorage )
 	{
 		super( bitStorage, 4 );
 	}
@@ -61,15 +61,15 @@ public class Unsigned4BitType extends AbstractIntegerBitType< Unsigned4BitType >
 	// this is the constructor if you want it to be a variable
 	public Unsigned4BitType( final long value )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = new LongArray( 1 );
 		set( value );
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public Unsigned4BitType( final LongAccess access )
+	public Unsigned4BitType( final LongAccess< ? > access )
 	{
-		this( ( NativeImg< ?, ? extends LongAccess > ) null );
+		this( ( NativeImg< ?, ? extends LongAccess< ? > > ) null );
 		dataAccess = access;
 	}
 
@@ -85,10 +85,10 @@ public class Unsigned4BitType extends AbstractIntegerBitType< Unsigned4BitType >
 		return new Unsigned4BitType( img );
 	}
 
-	private static final NativeTypeFactory< Unsigned4BitType, LongAccess > typeFactory = NativeTypeFactory.LONG( Unsigned4BitType::new );
+	private static final NativeTypeFactory< Unsigned4BitType, LongAccess< ? > > typeFactory = NativeTypeFactory.LONG( Unsigned4BitType::new );
 
 	@Override
-	public NativeTypeFactory< Unsigned4BitType, LongAccess > getNativeTypeFactory()
+	public NativeTypeFactory< Unsigned4BitType, LongAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

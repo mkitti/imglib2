@@ -39,5 +39,5 @@ import net.imglib2.img.basictypeaccess.BooleanAccess;
 /**
  * @author Curtis Rueden
  */
-public interface VolatileBooleanAccess extends BooleanAccess, VolatileAccess
+public interface VolatileBooleanAccess< A extends VolatileBooleanAccess< A > > extends BooleanAccess< A >, VolatileAccess
 {}

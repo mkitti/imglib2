@@ -50,7 +50,7 @@ import net.imglib2.util.Util;
 public class UnsignedByteType extends GenericByteType< UnsignedByteType >
 {
 	// this is the constructor if you want it to read from an array
-	public UnsignedByteType( final NativeImg< ?, ? extends ByteAccess > img )
+	public UnsignedByteType( final NativeImg< ?, ? extends ByteAccess< ? > > img )
 	{
 		super( img );
 	}
@@ -62,7 +62,7 @@ public class UnsignedByteType extends GenericByteType< UnsignedByteType >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public UnsignedByteType( final ByteAccess access )
+	public UnsignedByteType( final ByteAccess< ? > access )
 	{
 		super( access );
 	}
@@ -99,10 +99,10 @@ public class UnsignedByteType extends GenericByteType< UnsignedByteType >
 		return new UnsignedByteType( img );
 	}
 
-	private static final NativeTypeFactory< UnsignedByteType, ByteAccess > typeFactory = NativeTypeFactory.BYTE( UnsignedByteType::new );
+	private static final NativeTypeFactory< UnsignedByteType, ByteAccess< ? > > typeFactory = NativeTypeFactory.BYTE( UnsignedByteType::new );
 
 	@Override
-	public NativeTypeFactory< UnsignedByteType, ByteAccess > getNativeTypeFactory()
+	public NativeTypeFactory< UnsignedByteType, ByteAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

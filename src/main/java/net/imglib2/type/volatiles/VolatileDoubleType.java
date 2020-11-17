@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.real.DoubleType;
  */
 public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleType, VolatileDoubleType >
 {
-	final protected NativeImg< ?, ? extends VolatileDoubleAccess > img;
+	final protected NativeImg< ?, ? extends VolatileDoubleAccess< ? > > img;
 
 	private static class WrappedDoubleType extends DoubleType
 	{
-		public WrappedDoubleType( final NativeImg<?, ? extends DoubleAccess> img )
+		public WrappedDoubleType( final NativeImg<?, ? extends DoubleAccess< ? >> img )
 		{
 			super( img );
 		}
 
-		public WrappedDoubleType( final DoubleAccess access )
+		public WrappedDoubleType( final DoubleAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final DoubleAccess access )
+		public void setAccess( final DoubleAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileDoubleType( final NativeImg< ?, ? extends VolatileDoubleAccess > img )
+	public VolatileDoubleType( final NativeImg< ?, ? extends VolatileDoubleAccess< ? > > img )
 	{
 		super( new WrappedDoubleType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileDoubleType( final VolatileDoubleAccess access )
+	public VolatileDoubleType( final VolatileDoubleAccess< ? > access )
 	{
 		super( new WrappedDoubleType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleTy
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileDoubleAccess a = img.update( c );
+		final VolatileDoubleAccess< ? > a = img.update( c );
 		( ( WrappedDoubleType )t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileDoubleType extends AbstractVolatileNativeRealType< DoubleTy
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileDoubleType, VolatileDoubleAccess > typeFactory = NativeTypeFactory.DOUBLE( VolatileDoubleType::new );
+	private static final NativeTypeFactory< VolatileDoubleType, VolatileDoubleAccess< ? > > typeFactory = NativeTypeFactory.DOUBLE( VolatileDoubleType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileDoubleType, ? > getNativeTypeFactory()

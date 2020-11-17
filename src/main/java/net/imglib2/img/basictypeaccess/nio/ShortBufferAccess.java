@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileShortAccess;
  * 
  * @author Mark Kittisopikul
  */
-public class ShortBufferAccess extends AbstractBufferAccess< ShortBufferAccess, ShortBuffer > implements VolatileShortAccess
+public class ShortBufferAccess extends AbstractBufferAccess< ShortBufferAccess, ShortBuffer > implements VolatileShortAccess< ShortBufferAccess >
 {
 
 	/**

@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileIntAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class DirtyVolatileIntArray extends AbstractVolatileIntArray< DirtyVolatileIntArray > implements VolatileIntAccess, Dirty
+public class DirtyVolatileIntArray extends AbstractVolatileIntArray< DirtyVolatileIntArray > implements VolatileIntAccess< DirtyVolatileIntArray >, Dirty
 {
 	protected boolean dirty = false;
 

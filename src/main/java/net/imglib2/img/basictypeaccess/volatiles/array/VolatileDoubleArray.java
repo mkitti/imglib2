@@ -42,7 +42,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileDoubleAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class VolatileDoubleArray extends AbstractVolatileDoubleArray< VolatileDoubleArray > implements VolatileDoubleAccess
+public class VolatileDoubleArray extends AbstractVolatileDoubleArray< VolatileDoubleArray > implements VolatileDoubleAccess< VolatileDoubleArray >
 {
 	public VolatileDoubleArray( final int numEntities, final boolean isValid )
 	{

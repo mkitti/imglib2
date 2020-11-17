@@ -59,7 +59,8 @@ import net.imglib2.view.iteration.SubIntervalIterable;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-public class ArrayImg< T extends NativeType< T >, A extends DataAccess > extends AbstractNativeImg< T, A > implements SubIntervalIterable< T >
+
+public class ArrayImg< T extends NativeType< T >, A extends DataAccess< A > > extends AbstractNativeImg< T, A > implements SubIntervalIterable< T >
 {
 	final int[] steps, dim;
 
@@ -80,11 +81,10 @@ public class ArrayImg< T extends NativeType< T >, A extends DataAccess > extends
 		this.data = data;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public A update( final Object o )
 	{
-		return (A) data.createView(o);
+		return data.createView(o);
 	}
 
 	@Override

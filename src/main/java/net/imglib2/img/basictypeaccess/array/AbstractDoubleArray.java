@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.DoubleAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractDoubleArray< A extends AbstractDoubleArray< A > > implements DoubleAccess, ArrayDataAccess< A >
+abstract public class AbstractDoubleArray< A extends AbstractDoubleArray< A > > implements DoubleAccess< A >, ArrayDataAccess< A >
 {
 	protected double data[];
 

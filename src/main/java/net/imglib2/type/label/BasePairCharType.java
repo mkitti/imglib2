@@ -58,13 +58,13 @@ public class BasePairCharType extends AbstractNativeType< BasePairCharType > imp
 		return new Fraction();
 	}
 
-	final protected NativeImg< ?, ? extends CharAccess > img;
+	final protected NativeImg< ?, ? extends CharAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected CharAccess dataAccess;
+	protected CharAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public BasePairCharType( final NativeImg< ?, ? extends CharAccess > charStorage )
+	public BasePairCharType( final NativeImg< ?, ? extends CharAccess< ? > > charStorage )
 	{
 		img = charStorage;
 	}
@@ -103,10 +103,10 @@ public class BasePairCharType extends AbstractNativeType< BasePairCharType > imp
 		return new BasePairCharType( img );
 	}
 
-	private static final NativeTypeFactory< BasePairCharType, CharAccess > typeFactory = NativeTypeFactory.CHAR( BasePairCharType::new );
+	private static final NativeTypeFactory< BasePairCharType, CharAccess< ? > > typeFactory = NativeTypeFactory.CHAR( BasePairCharType::new );
 
 	@Override
-	public NativeTypeFactory< BasePairCharType, CharAccess > getNativeTypeFactory()
+	public NativeTypeFactory< BasePairCharType, CharAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

@@ -49,7 +49,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
  * @author Mark Kittisopikul
  * @author Philipp Hanslovsky (initial specification)
  */
-public interface BufferAccess < A > extends VolatileAccess, ArrayDataAccess< A > {
+public interface BufferAccess < A extends BufferAccess< A > > extends VolatileAccess, ArrayDataAccess< A > {
 	
 	/**
 	 * Determine if the underlying Buffer is allocated

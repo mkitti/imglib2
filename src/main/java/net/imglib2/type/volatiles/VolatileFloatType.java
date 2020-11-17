@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.real.FloatType;
  */
 public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType, VolatileFloatType >
 {
-	final protected NativeImg< ?, ? extends VolatileFloatAccess > img;
+	final protected NativeImg< ?, ? extends VolatileFloatAccess< ? > > img;
 
 	private static class WrappedFloatType extends FloatType
 	{
-		public WrappedFloatType( final NativeImg<?, ? extends FloatAccess> img )
+		public WrappedFloatType( final NativeImg<?, ? extends FloatAccess< ? > > img )
 		{
 			super( img );
 		}
 
-		public WrappedFloatType( final FloatAccess access )
+		public WrappedFloatType( final FloatAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final FloatAccess access )
+		public void setAccess( final FloatAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileFloatType( final NativeImg< ?, ? extends VolatileFloatAccess > img )
+	public VolatileFloatType( final NativeImg< ?, ? extends VolatileFloatAccess< ? > > img )
 	{
 		super( new WrappedFloatType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileFloatType( final VolatileFloatAccess access )
+	public VolatileFloatType( final VolatileFloatAccess< ? > access )
 	{
 		super( new WrappedFloatType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileFloatAccess a = img.update( c );
+		final VolatileFloatAccess< ? > a = img.update( c );
 		( ( WrappedFloatType )t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileFloatType extends AbstractVolatileNativeRealType< FloatType
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileFloatType, VolatileFloatAccess > typeFactory = NativeTypeFactory.FLOAT( VolatileFloatType::new );
+	private static final NativeTypeFactory< VolatileFloatType, VolatileFloatAccess< ? > > typeFactory = NativeTypeFactory.FLOAT( VolatileFloatType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileFloatType, ? > getNativeTypeFactory()

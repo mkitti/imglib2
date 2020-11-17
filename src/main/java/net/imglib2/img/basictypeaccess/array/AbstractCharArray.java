@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.CharAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractCharArray< A extends AbstractCharArray< A > > implements CharAccess, ArrayDataAccess< A >
+abstract public class AbstractCharArray< A extends AbstractCharArray< A > > implements CharAccess< A >, ArrayDataAccess< A >
 {
 	protected char data[];
 

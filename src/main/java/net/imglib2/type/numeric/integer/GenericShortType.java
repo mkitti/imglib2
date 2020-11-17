@@ -56,13 +56,13 @@ public abstract class GenericShortType< T extends GenericShortType< T > >
 {
 	int i = 0;
 
-	final protected NativeImg< ?, ? extends ShortAccess > img;
+	final protected NativeImg< ?, ? extends ShortAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected ShortAccess dataAccess;
+	protected ShortAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public GenericShortType( final NativeImg< ?, ? extends ShortAccess > shortStorage )
+	public GenericShortType( final NativeImg< ?, ? extends ShortAccess< ? > > shortStorage )
 	{
 		img = shortStorage;
 	}
@@ -76,7 +76,7 @@ public abstract class GenericShortType< T extends GenericShortType< T > >
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public GenericShortType( final ShortAccess access )
+	public GenericShortType( final ShortAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -101,7 +101,7 @@ public abstract class GenericShortType< T extends GenericShortType< T > >
 	}
 
 	@Override
-	public abstract NativeTypeFactory< T, ShortAccess > getNativeTypeFactory();
+	public abstract NativeTypeFactory< T, ShortAccess< ? > > getNativeTypeFactory();
 
 	/**
 	 * @deprecated Use {@link #getShort()} instead.

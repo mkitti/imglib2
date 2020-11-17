@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileCharAccess;
  * 
  * @author Mark Kittisopikul
  */
-public class CharBufferAccess extends AbstractBufferAccess< CharBufferAccess, CharBuffer > implements VolatileCharAccess
+public class CharBufferAccess extends AbstractBufferAccess< CharBufferAccess, CharBuffer > implements VolatileCharAccess< CharBufferAccess >
 {
 
 	/**

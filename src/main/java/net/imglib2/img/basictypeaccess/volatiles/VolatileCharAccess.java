@@ -40,5 +40,5 @@ import net.imglib2.img.basictypeaccess.CharAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public interface VolatileCharAccess extends CharAccess, VolatileAccess
+public interface VolatileCharAccess< A extends VolatileCharAccess< A > >  extends CharAccess< A >, VolatileAccess
 {}

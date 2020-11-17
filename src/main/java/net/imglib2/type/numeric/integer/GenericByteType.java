@@ -52,13 +52,13 @@ public abstract class GenericByteType< T extends GenericByteType< T > > extends 
 {
 	int i = 0;
 
-	final protected NativeImg< ?, ? extends ByteAccess > img;
+	final protected NativeImg< ?, ? extends ByteAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected ByteAccess dataAccess;
+	protected ByteAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public GenericByteType( final NativeImg< ?, ? extends ByteAccess > byteStorage )
+	public GenericByteType( final NativeImg< ?, ? extends ByteAccess< ? > > byteStorage )
 	{
 		img = byteStorage;
 	}
@@ -72,7 +72,7 @@ public abstract class GenericByteType< T extends GenericByteType< T > > extends 
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public GenericByteType( final ByteAccess access )
+	public GenericByteType( final ByteAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -97,7 +97,7 @@ public abstract class GenericByteType< T extends GenericByteType< T > > extends 
 	}
 
 	@Override
-	public abstract NativeTypeFactory< T, ByteAccess > getNativeTypeFactory();
+	public abstract NativeTypeFactory< T, ByteAccess< ? > > getNativeTypeFactory();
 
 	/**
 	 * @deprecated Use {@link #getByte()} instead.

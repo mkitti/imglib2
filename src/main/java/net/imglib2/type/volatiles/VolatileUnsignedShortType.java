@@ -50,35 +50,35 @@ import net.imglib2.type.numeric.integer.UnsignedShortType;
  */
 public class VolatileUnsignedShortType extends AbstractVolatileNativeRealType< UnsignedShortType, VolatileUnsignedShortType >
 {
-	final protected NativeImg< ?, ? extends VolatileShortAccess > img;
+	final protected NativeImg< ?, ? extends VolatileShortAccess< ? > > img;
 
 	private static class WrappedUnsignedShortType extends UnsignedShortType
 	{
-		public WrappedUnsignedShortType( final NativeImg<?, ? extends ShortAccess> img )
+		public WrappedUnsignedShortType( final NativeImg<?, ? extends ShortAccess< ? >> img )
 		{
 			super( img );
 		}
 
-		public WrappedUnsignedShortType( final ShortAccess access )
+		public WrappedUnsignedShortType( final ShortAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final ShortAccess access )
+		public void setAccess( final ShortAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileUnsignedShortType( final NativeImg< ?, ? extends VolatileShortAccess > img )
+	public VolatileUnsignedShortType( final NativeImg< ?, ? extends VolatileShortAccess< ? > > img )
 	{
 		super( new WrappedUnsignedShortType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileUnsignedShortType( final VolatileShortAccess access )
+	public VolatileUnsignedShortType( final VolatileShortAccess< ? > access )
 	{
 		super( new WrappedUnsignedShortType( access ), access.isValid() );
 		this.img = null;
@@ -105,7 +105,7 @@ public class VolatileUnsignedShortType extends AbstractVolatileNativeRealType< U
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileShortAccess a = img.update( c );
+		final VolatileShortAccess< ? > a = img.update( c );
 		( (WrappedUnsignedShortType) t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -130,7 +130,7 @@ public class VolatileUnsignedShortType extends AbstractVolatileNativeRealType< U
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileUnsignedShortType, VolatileShortAccess > typeFactory = NativeTypeFactory.SHORT( VolatileUnsignedShortType::new );
+	private static final NativeTypeFactory< VolatileUnsignedShortType, VolatileShortAccess< ? > > typeFactory = NativeTypeFactory.SHORT( VolatileUnsignedShortType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileUnsignedShortType, ? > getNativeTypeFactory()

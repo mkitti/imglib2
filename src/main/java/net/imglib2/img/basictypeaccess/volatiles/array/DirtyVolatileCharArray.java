@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileCharAccess;
  * @author Stephan Saalfeld
  * @author Tobias Pietzsch
  */
-public class DirtyVolatileCharArray extends AbstractVolatileCharArray< DirtyVolatileCharArray > implements VolatileCharAccess, Dirty
+public class DirtyVolatileCharArray extends AbstractVolatileCharArray< DirtyVolatileCharArray > implements VolatileCharAccess< DirtyVolatileCharArray >, Dirty
 {
 	protected boolean dirty = false;
 

@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.IntAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class IntNtree implements IntAccess, NtreeAccess< Integer, IntNtree >
+public final class IntNtree implements IntAccess< IntNtree >, NtreeAccess< Integer, IntNtree >
 {
 
 	private final long[] position;

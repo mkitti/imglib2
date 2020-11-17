@@ -56,7 +56,7 @@ import net.imglib2.type.numeric.RealType;
  * 
  * @author Curtis Rueden
  */
-public abstract class ArrayImgAWTScreenImage< T extends NativeType< T >, A extends DataAccess > extends ArrayImg< T, A > implements AWTScreenImage
+public abstract class ArrayImgAWTScreenImage< T extends NativeType< T >, A extends DataAccess< A > > extends ArrayImg< T, A > implements AWTScreenImage
 {
 
 	private final BufferedImage bufferedImage;

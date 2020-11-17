@@ -51,7 +51,7 @@ public final class RealDoubleSamplerConverter< R extends RealType< R > > impleme
 		return new DoubleType( new RealConvertingDoubleAccess< R >( sampler ) );
 	}
 
-	private static final class RealConvertingDoubleAccess< R extends RealType< R > > implements DoubleAccess
+	private static final class RealConvertingDoubleAccess< R extends RealType< R > > implements DoubleAccess< RealConvertingDoubleAccess< R > >
 	{
 		private final Sampler< ? extends R > sampler;
 

@@ -47,7 +47,7 @@ import net.imglib2.type.NativeType;
  * @author Mark Kittisopikul
  *
  */
-public interface DataAccess {
+public interface DataAccess< A extends DataAccess< A > > {
 	
 	/**
 	 * Create a copy of the current access without copying the underlying data.
@@ -63,8 +63,9 @@ public interface DataAccess {
 	 * @see NativeImg#update(Object)
 	 * @see NativeType#updateContainer(Object)
 	 */
-	public default DataAccess createView(final Object o) {
-		return this;
+	@SuppressWarnings("unchecked")
+	public default A createView(final Object o) {
+		return (A) this;
 	}
 	
 }

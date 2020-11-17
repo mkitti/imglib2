@@ -55,13 +55,13 @@ import net.imglib2.util.Util;
  */
 public class ARGBType extends AbstractNativeType< ARGBType > implements NumericType< ARGBType >
 {
-	final protected NativeImg< ?, ? extends IntAccess > img;
+	final protected NativeImg< ?, ? extends IntAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected IntAccess dataAccess;
+	protected IntAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public ARGBType( final NativeImg< ?, ? extends IntAccess > intStorage )
+	public ARGBType( final NativeImg< ?, ? extends IntAccess< ? > > intStorage )
 	{
 		img = intStorage;
 	}
@@ -75,7 +75,7 @@ public class ARGBType extends AbstractNativeType< ARGBType > implements NumericT
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public ARGBType( final IntAccess access )
+	public ARGBType( final IntAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -99,10 +99,10 @@ public class ARGBType extends AbstractNativeType< ARGBType > implements NumericT
 		return new ARGBType( img );
 	}
 
-	private static final NativeTypeFactory< ARGBType, IntAccess > typeFactory = NativeTypeFactory.INT( ARGBType::new );
+	private static final NativeTypeFactory< ARGBType, IntAccess< ? > > typeFactory = NativeTypeFactory.INT( ARGBType::new );
 
 	@Override
-	public NativeTypeFactory< ARGBType, IntAccess > getNativeTypeFactory()
+	public NativeTypeFactory< ARGBType, IntAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

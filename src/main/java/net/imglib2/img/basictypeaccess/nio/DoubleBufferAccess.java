@@ -44,7 +44,7 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileDoubleAccess;
  * 
  * @author Mark Kittisopikul
  */
-public class DoubleBufferAccess extends AbstractBufferAccess< DoubleBufferAccess, DoubleBuffer > implements VolatileDoubleAccess
+public class DoubleBufferAccess extends AbstractBufferAccess< DoubleBufferAccess, DoubleBuffer > implements VolatileDoubleAccess< DoubleBufferAccess >
 {
 
 	/**

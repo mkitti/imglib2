@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.LongAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractLongArray< A extends AbstractLongArray< A > > implements LongAccess, ArrayDataAccess< A >
+abstract public class AbstractLongArray< A extends AbstractLongArray< A > > implements LongAccess< A >, ArrayDataAccess< A >
 {
 	protected long data[];
 

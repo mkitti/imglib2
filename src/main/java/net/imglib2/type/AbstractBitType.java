@@ -54,14 +54,14 @@ public abstract class AbstractBitType< T extends AbstractBitType< T > > implemen
 	protected final int nBits;
 
 	// the NativeImg that can update the DataAccess (if this instance is not a variable)
-	final protected NativeImg< ?, ? extends LongAccess > img;
+	final protected NativeImg< ?, ? extends LongAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected LongAccess dataAccess;
+	protected LongAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
 	public AbstractBitType(
-			final NativeImg< ?, ? extends LongAccess > bitStorage,
+			final NativeImg< ?, ? extends LongAccess< ? > > bitStorage,
 			final int nBits )
 	{
 		img = bitStorage;
@@ -75,7 +75,7 @@ public abstract class AbstractBitType< T extends AbstractBitType< T > > implemen
 	}
 
 	@Override
-	public abstract NativeTypeFactory< T, LongAccess > getNativeTypeFactory();
+	public abstract NativeTypeFactory< T, LongAccess< ? > > getNativeTypeFactory();
 
 	@Override
 	public int getIndex()

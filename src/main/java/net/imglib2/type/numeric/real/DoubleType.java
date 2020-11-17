@@ -51,13 +51,13 @@ public class DoubleType extends AbstractRealType< DoubleType > implements Native
 {
 	private int i = 0;
 
-	final protected NativeImg< ?, ? extends DoubleAccess > img;
+	final protected NativeImg< ?, ? extends DoubleAccess< ? > > img;
 
 	// the DataAccess that holds the information
-	protected DoubleAccess dataAccess;
+	protected DoubleAccess< ? > dataAccess;
 
 	// this is the constructor if you want it to read from an array
-	public DoubleType( final NativeImg< ?, ? extends DoubleAccess > doubleStorage )
+	public DoubleType( final NativeImg< ?, ? extends DoubleAccess< ? > > doubleStorage )
 	{
 		img = doubleStorage;
 	}
@@ -71,7 +71,7 @@ public class DoubleType extends AbstractRealType< DoubleType > implements Native
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public DoubleType( final DoubleAccess access )
+	public DoubleType( final DoubleAccess< ? > access )
 	{
 		img = null;
 		dataAccess = access;
@@ -95,10 +95,10 @@ public class DoubleType extends AbstractRealType< DoubleType > implements Native
 		return new DoubleType( img );
 	}
 
-	private static final NativeTypeFactory< DoubleType, DoubleAccess > typeFactory = NativeTypeFactory.DOUBLE( DoubleType::new );
+	private static final NativeTypeFactory< DoubleType, DoubleAccess< ? > > typeFactory = NativeTypeFactory.DOUBLE( DoubleType::new );
 
 	@Override
-	public NativeTypeFactory< DoubleType, DoubleAccess > getNativeTypeFactory()
+	public NativeTypeFactory< DoubleType, DoubleAccess< ? > > getNativeTypeFactory()
 	{
 		return typeFactory;
 	}

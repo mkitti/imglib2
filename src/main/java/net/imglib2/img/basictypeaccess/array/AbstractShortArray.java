@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.ShortAccess;
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
  */
-abstract public class AbstractShortArray< A extends AbstractShortArray< A > > implements ShortAccess, ArrayDataAccess< A >
+abstract public class AbstractShortArray< A extends AbstractShortArray< A > > implements ShortAccess< A >, ArrayDataAccess< A >
 {
 	protected short data[];
 

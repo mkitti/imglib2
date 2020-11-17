@@ -51,35 +51,35 @@ import net.imglib2.type.numeric.integer.UnsignedByteType;
  */
 public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< UnsignedByteType, VolatileUnsignedByteType >
 {
-	final protected NativeImg< ?, ? extends VolatileByteAccess > img;
+	final protected NativeImg< ?, ? extends VolatileByteAccess< ? > > img;
 
 	private static class WrappedUnsignedByteType extends UnsignedByteType
 	{
-		public WrappedUnsignedByteType( final NativeImg<?, ? extends ByteAccess> img )
+		public WrappedUnsignedByteType( final NativeImg<?, ? extends ByteAccess< ? > > img )
 		{
 			super( img );
 		}
 
-		public WrappedUnsignedByteType( final ByteAccess access )
+		public WrappedUnsignedByteType( final ByteAccess< ? > access )
 		{
 			super( access );
 		}
 
-		public void setAccess( final ByteAccess access )
+		public void setAccess( final ByteAccess< ? > access )
 		{
 			dataAccess = access;
 		}
 	}
 
 	// this is the constructor if you want it to read from an array
-	public VolatileUnsignedByteType( final NativeImg< ?, ? extends VolatileByteAccess > img )
+	public VolatileUnsignedByteType( final NativeImg< ?, ? extends VolatileByteAccess< ? > > img )
 	{
 		super( new WrappedUnsignedByteType( img ), false );
 		this.img = img;
 	}
 
 	// this is the constructor if you want to specify the dataAccess
-	public VolatileUnsignedByteType( final VolatileByteAccess access )
+	public VolatileUnsignedByteType( final VolatileByteAccess< ? > access )
 	{
 		super( new WrappedUnsignedByteType( access ), access.isValid() );
 		this.img = null;
@@ -106,7 +106,7 @@ public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< Un
 	@Override
 	public void updateContainer( final Object c )
 	{
-		final VolatileByteAccess a = img.update( c );
+		final VolatileByteAccess< ? > a = img.update( c );
 		( ( WrappedUnsignedByteType )t ).setAccess( a );
 		setValid( a.isValid() );
 	}
@@ -131,7 +131,7 @@ public class VolatileUnsignedByteType extends AbstractVolatileNativeRealType< Un
 		return v;
 	}
 
-	private static final NativeTypeFactory< VolatileUnsignedByteType, VolatileByteAccess > typeFactory = NativeTypeFactory.BYTE( VolatileUnsignedByteType::new );
+	private static final NativeTypeFactory< VolatileUnsignedByteType, VolatileByteAccess< ? > > typeFactory = NativeTypeFactory.BYTE( VolatileUnsignedByteType::new );
 
 	@Override
 	public NativeTypeFactory< VolatileUnsignedByteType, ? > getNativeTypeFactory()

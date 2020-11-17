@@ -41,7 +41,7 @@ import net.imglib2.img.basictypeaccess.CharAccess;
  *
  * @author Tobias Pietzsch
  */
-public final class CharNtree implements CharAccess, NtreeAccess< Character, CharNtree >
+public final class CharNtree implements CharAccess< CharNtree >, NtreeAccess< Character, CharNtree >
 {
 	private final long[] position;
 
